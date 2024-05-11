@@ -69,3 +69,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # in_stock_team1
+
+## Mixins and Varibale:
+Please add the following to each of your components
+`@use 'sass:list';`
+`@use 'sass:map';`
+`@use 'sass:math';`
+`@use '../../styles/partials/variables' as *;`
+`@use '../../styles/partials/mixins' as *;`
+`@use '../../App.scss' as *;`
+  Mixins and variables contain some stuff for display:grid, please skip it if You are not using grid
+  Rem function from App.scss helps you translate any number to rem by division on 16
+
+### Text Styles:
+For text styles usage see _mixins.scss comments
