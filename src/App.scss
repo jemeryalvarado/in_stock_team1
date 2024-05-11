@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use './styles/partials/variables' as *;
+@use './styles/partials/mixins' as *;
+
+
+// use this function for pixels to rem conversion
+@function rem($a:0, $b:0, $c:0){
+  @return math.div($a+$b+$c, 16) + rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'Regular';
+  src: url('./assets/fonts/TitilliumWeb-Regular.ttf') format('TrueType');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'SemiBold';
+  src: url('./assets/fonts/TitilliumWeb-SemiBold.ttf') format('TrueType');
+  font-weight: 600;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
