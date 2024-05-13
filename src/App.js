@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Navbar />
-        <Switch>
+        <Routes>
           <Route path="/warehouses"></Route>
           <Route path="/inventories"></Route>
-        </Switch>
+        </Routes>
       <Footer />
     </Router>
   )
