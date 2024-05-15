@@ -1,0 +1,18 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+
+// .footer-container{
+//     width: 100%;
+// }
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 117%;
+    color:$Slate;
+    @include media-query_('mobile'){
+        font-size: 14px;
+        font-weight:400;
+}
+}

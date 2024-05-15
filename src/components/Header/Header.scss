@@ -1,0 +1,59 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.nav{
+    background-color: $Graphite;
+    //** activate the following lines once the main page component is added
+    // position: absolute;
+    // z-index: 0;
+
+    @include media-query_('mobile') {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 375px;
+        height: 200px;
+        gap: 1rem;
+        opacity: 0px;
+
+    }
+
+    &__logo--img{
+        @include media-query_('mobile'){
+            width: 8.0369rem;
+            margin-top: 1.5rem;
+        }
+    }
+
+    &__buttonsContainer{
+        @include media-query_('mobile'){
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &__buttonsContainer--child{
+        @include media-query_('mobile'){
+            background-color: $Graphite;
+            width:10.25rem;
+            height: 2.25rem;
+            border: 1px solid $Graphite;
+            border-radius: 1.25rem;
+            color: $Cloud;
+            margin-top: 1rem;
+        // @include text-styles-config(13px, 20px ,'BodySmall');
+            
+        &:focus{
+            background-color: $InstockBlack;
+            width:10.25rem;
+            height: 2.25rem;
+            border: 1px solid $InstockBlack;
+            border-radius: 1.25rem;
+            color: $White;
+            margin-top: 1rem;
+        }
+            
+        }
+    }
+}
