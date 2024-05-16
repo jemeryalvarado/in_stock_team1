@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 function Header(){
     return(
         <header className="nav">
-            <div className="nav__logo">
-                <img
-                className="nav__logo--img"
-                src={InstockLogo}
-                alt="InstockLogo"
-                />
-            </div>
+            <Link to="/">
+                <div className="nav__logo">
+                    <img
+                    className="nav__logo--img"
+                    src={InstockLogo}
+                    alt="InstockLogo"
+                    />
+                </div>
+            </Link>
             <div className="nav__buttonsContainer">
                 <Link to="/warehouses/">
                 <button className="nav__buttonsContainer--child">Warehouses</button>

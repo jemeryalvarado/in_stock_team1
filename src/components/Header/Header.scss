@@ -4,8 +4,8 @@
 .nav{
     background-color: $Graphite;
     //** activate the following lines once the main page component is added
-    // position: absolute;
-    // z-index: 0;
+    position: relative;
+    z-index: 1;
 
     @include media-query_('mobile') {
         display: flex;
@@ -68,6 +68,7 @@
         border: 1px solid $Graphite;
         color: $Cloud;
         border-radius: 1.25rem;
+        cursor: pointer;
 
         @include media-query_('mobile'){
             width:9.25rem;
@@ -76,15 +77,15 @@
             margin-top: 1rem;
             @include text-styles('BodyMedium', true);
             
-        &:focus{
-            background-color: $InstockBlack;
-            width:9.25rem;
-            height: 2.25rem;
-            border: 1px solid $InstockBlack;
-            border-radius: 1.25rem;
-            color: $White;
-            margin-top: 1rem;
-        }
+            &:focus{
+                background-color: $InstockBlack;
+                width:9.25rem;
+                height: 2.25rem;
+                border: 1px solid $InstockBlack;
+                border-radius: 1.25rem;
+                color: $White;
+                margin-top: 1rem;
+            }
         }
 
         @include media-query_('tablet'){     
