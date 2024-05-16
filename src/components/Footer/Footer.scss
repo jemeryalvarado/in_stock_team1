@@ -9,10 +9,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 117%;
+    justify-content: end;
     color:$Slate;
+    background-color: $LightGrey;
+
     @include media-query_('mobile'){
-        font-size: 14px;
-        font-weight:400;
-}
+        height: 72.5vh;
+    }
+
+    @include media-query_('tablet'){
+        height: 70vh;
+    }
+    @include media-query_('desktop'){
+        height: 75vh;
+    }
+
+    &__copyright{
+        padding-bottom: 5rem;
+
+            @include media-query_('mobile'){
+                font-size: 11px;
+                font-weight:400;
+                padding-bottom: 2rem;
+                
+            }
+
+            @include media-query_('tablet'){
+                font-size: 12px;
+                font-weight:400;
+                padding-bottom: 2rem;
+                
+            }
+    }
 }
