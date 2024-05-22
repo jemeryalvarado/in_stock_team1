@@ -18,6 +18,16 @@ const AllWarehouses = () => {
             setError(err.message);
             setLoading(false);
           });
+
+          axios.get('http://localhost:8080/inventories')
+        .then((r) => {
+        const inventory=  r.data;
+        return(inventory) ;
+        })
+        .catch((err) => {
+          setError(`Error fetching inventory: ${err.message}`);
+        });
+
       }, []);
 
     return (
