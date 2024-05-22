@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import "./App.scss";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<WarehousesPage />}/>
           <Route path="/warehouses" element={<WarehousesPage />} />
           <Route path="/inventories"/>
+          <Route path="/addwarehouses" element = {<AddWarehouse /> } />
         </Routes>
       <Footer />
     </Router>
