@@ -2,6 +2,7 @@ import "./WarehouseDetailsPage.scss"
 import edit from "../../assets/icons/wht-edit_24dp.svg";
 import back from "../../assets/icons/arrow_back-24px.svg";
 import { useState, useEffect } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
@@ -11,12 +12,16 @@ function WarehouseDetailsPage ({ baseUrl }) {
   const [ warehouse, setWarehouse ] = useState( warehouseId );
 
 // useEffect() to render only once, or when our dependancy changes
-  axios.get(`${baseUrl}warehouses/`)
-    .then(response => {
-      console.log(response.data)
-    })
 
-
+  useEffect(() => {
+    const fetchWarehouseDetails = () => {
+      axios.get(`${baseUrl}/warehouses/${warehouseId}`)
+      .then(response => {
+        console.log(response.data)
+      })
+    }
+    fetchWarehouseDetails();
+  }, [])
 
   return (
     <>

@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
-import WarehouseDetailsPage from "./pages/WarehouseDetailsPage"
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage"
 import "./App.scss";
 
-require("dotenv").config();
 const baseUrl = process.env.REACT_APP_BASE_URL
+console.log(baseUrl)
 
 function App() {
   return (
