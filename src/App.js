@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
-import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+import AddWarehouse from "./pages/AddWarehousePage/AddWarehouse";
 import "./App.scss";
 
 function App() {

@@ -1,0 +1,97 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.formContainer{
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &__header{
+        display: flex;
+        align-items: center;
+        width: max-content;
+    }
+
+    &__header--title{
+        // margin: 0;
+        @include text-styles('PageHeader', true);
+    }
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 3;
+    width: 85%;
+    height: 100vh;
+    top: 16.75rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.warehouseForm{
+
+    &__details{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__contact{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__labels{
+        padding-bottom: 0.5rem;
+        @include media-query_('mobile'){
+            @include text-styles('LabelsLinksButtons', true);
+        }
+       
+    }
+
+    &__titles{
+        @include media-query_('mobile'){
+            @include text-styles('SubHeader', true);
+        }
+    }
+
+    &__fields{
+        margin-bottom: 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid $Cloud;
+        height: 2rem;
+        @include text-styles('BodySmall', true);
+    }
+
+    &__fields::placeholder{
+        padding-left: 0.5rem;
+    }
+
+    &__buttons{
+        background-color: $LightGrey;
+        display: flex;
+        flex-direction: row;
+    }
+    &__cancel{
+        border-radius: 20px;
+        border: 1px solid $Cloud;
+        width: 139px;
+        height: 36px;
+        background-color:$White;
+    }
+
+    &__add{
+        border-radius: 20px;
+        border: 1px solid $InstockIndigo;
+        width: 139px;
+        height: 36px;
+        background-color:$InstockIndigo;
+        color:$White;
+    }
+}
+
+.divider{
+    border-color: $Cloud;
+    border-width: 0.05rem;
+    border-style: solid;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
