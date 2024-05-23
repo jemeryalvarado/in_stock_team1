@@ -1,12 +1,8 @@
 import "./WarehousesPage.scss";
-import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
+import WarehouseDetails from "../WarehouseDetailsPage/WarehouseDetailsPage";
 
-function WarehousesPage(){
-    return(
-        <>
-          <WarehouseDetails />
-        </>
-    )
+function WarehousesPage (){
+    return
 }
 
 export default WarehousesPage;
