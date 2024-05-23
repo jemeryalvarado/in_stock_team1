@@ -1,8 +1,69 @@
 import "./AddWarehouse.scss";
 import { useState } from "react";
 import arrow_back from "../../assets/icons/arrow_back-24px.svg"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 function AddWarehouse(){
+  const baseURL = " http://localhost:8080";
+  const [newWarehouse, setWarehouse] = useState({
+    warehouse_name:"",
+    address:"",
+    city:"",
+    country:"",
+    contact_name:"",
+    contact_position:"",
+    contact_phone:"",
+    contact_email:"",
+  });
+
+  const navigate = useNavigate();
+
+  const submitForm = (event) =>{
+    event.preventDefault();
+
+    setWarehouse({
+    warehouse_name:"",
+    address:"",
+    city:"",
+    country:"",
+    contact_name:"",
+    contact_position:"",
+    contact_phone:"",
+    contact_email:"",
+    });
+
+    const postData =() =>{
+      const response = axios
+      .post(`${baseURL}/warehouses`,{
+        warehouse_name: newWarehouse.warehouse_name,
+        address: newWarehouse.address,
+        city: newWarehouse.city,
+        country: newWarehouse.country,
+        contact_name: newWarehouse.contact_name,
+        contact_position: newWarehouse.contact_position,
+        contact_phone: newWarehouse.contact_phone,
+        contact_email: newWarehouse.contact_email,
+      })
+      .then((response)=>{
+        console.log(response.data);
+        return response.data;
+      })
+      .catch((error) =>{
+        console.error(error)
+      });
+      return response;
+    };
+
+    postData();
+    navigate("/")
+  };
+
+  const inputChange = (event) =>{
+    event.preventDefault();
+    const {name , value} = event.target;
+    setWarehouse({...newWarehouse, [name]:value});
+  };
+
     return (
         <section className="formContainer">
             <div className="formContainer__header">
@@ -16,34 +77,35 @@ function AddWarehouse(){
                 <h1 className="formContainer__header--title">Add New Warehouse</h1>
             </div>
             <hr className="divider" />
-          <form className="warehouseForm">
+          <form className="warehouseForm" onSubmit={submitForm}>
+            <div className="warehouseForm__formsWrapper"> 
             <div className="warehouseForm__details">
                 <h2 className="warehouseForm__titles">Warhouse Details</h2>
 
-                <label htmlFor="warehousename" className="warehouseForm__labels">
+                <label htmlFor="warehouse_name" className="warehouseForm__labels">
                     Warehouse Name
                 </label>
                   <input
-                    id="warehousename"
+                    id="warehouse_name"
                     tabIndex="0"
                     placeholder="Warehouse Name"
-                    name="warehousename"
+                    name="warehouse_name"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.warehouse_name}
+                    onChange={inputChange}
                   />
 
-                <label htmlFor="streetaddress" className="warehouseForm__labels">
+                <label htmlFor="address" className="warehouseForm__labels">
                     Street Address
                 </label>
                   <input
-                    id="streetaddress"
+                    id="address"
                     tabIndex="0"
                     placeholder="Street Address"
-                    name="streetaddress"
+                    name="address"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.address}
+                    onChange={inputChange}
                   />
 
                 <label htmlFor="city" className="warehouseForm__labels">
@@ -55,8 +117,8 @@ function AddWarehouse(){
                     placeholder="City"
                     name="city"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.city}
+                    onChange={inputChange}
                   />
 
                 <label htmlFor="country" className="warehouseForm__labels">
@@ -68,8 +130,8 @@ function AddWarehouse(){
                     placeholder="Country"
                     name="country"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.country}
+                    onChange={inputChange}
                   />
 
             </div>
@@ -77,64 +139,67 @@ function AddWarehouse(){
             <div className="warehouseForm__contact">
                 <h2 className="warehouseForm__titles">Contact Details</h2>
 
-                <label htmlFor="contactname" className="warehouseForm__labels">
+                <label htmlFor="contact_name" className="warehouseForm__labels">
                     Contact Name
                 </label>
                   <input
-                    id="contactname"
+                    id="contact_name"
                     tabIndex="0"
                     placeholder="Contact Name"
-                    name="contactname"
+                    name="contact_name"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.contact_name}
+                    onChange={inputChange}
                   />
 
-                <label htmlFor="position" className="warehouseForm__labels">
+                <label htmlFor="contact_position" className="warehouseForm__labels">
                     Position
                 </label>
                   <input
-                    id="position"
+                    id="contact_position"
                     tabIndex="0"
                     placeholder="Position"
-                    name="position"
+                    name="contact_position"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.contact_position}
+                    onChange={inputChange}
                   />
 
-                <label htmlFor="phonenumber" className="warehouseForm__labels">
+                <label htmlFor="contact_phone" className="warehouseForm__labels">
                     Phone Number
                 </label>
                   <input
-                    id="phonenumber"
+                    id="contact_phone"
                     tabIndex="0"
                     placeholder="Phone Number"
-                    name="phonenumber"
+                    name="contact_phone"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.contact_phone}
+                    onChange={inputChange}
                   />
 
-                <label htmlFor="email" className="warehouseForm__labels">
+                <label htmlFor="contact_email" className="warehouseForm__labels">
                     Email
                 </label>
                   <input
-                    id="email"
+                    id="contact_email"
                     tabIndex="0"
                     placeholder="Email"
-                    name="email"
+                    name="contact_email"
                     className="warehouseForm__fields"
-                    // value={newVideoUpload.title}
-                    // onChange={inputChange}
+                    value={newWarehouse.contact_email}
+                    onChange={inputChange}
                   />
 
 
             </div>
+            </div>
 
             <div className="warehouseForm__buttons">
-                <button className="warehouseForm__cancel"> Cancel</button>
-                <button className="warehouseForm__add"> + Add Warehouse</button>
+                <Link to={'/'}> 
+                  <button type="button" className="warehouseForm__cancel"> Cancel</button>
+                </Link>
+                <button type="submit" className="warehouseForm__add"> + Add Warehouse</button>
             </div>
           </form>
             

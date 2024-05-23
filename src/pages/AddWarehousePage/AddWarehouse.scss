@@ -29,6 +29,24 @@
 
 .warehouseForm{
 
+    &__formsWrapper{
+        @include media-query_('mobile'){
+            display: flex;
+            flex-direction: column;
+        }
+        @include media-query_('tablet'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+
     &__details{
         display: flex;
         flex-direction: column;
@@ -58,17 +76,28 @@
         border-radius: 1.25rem;
         border: 1px solid $Cloud;
         height: 2rem;
+        text-indent: 0.5rem;
         @include text-styles('BodySmall', true);
     }
 
-    &__fields::placeholder{
-        padding-left: 0.5rem;
-    }
 
     &__buttons{
         background-color: $LightGrey;
         display: flex;
         flex-direction: row;
+        @include media-query_('tablet'){
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            padding-right: 1rem;
+        }
+
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            padding-right: 1rem;
+        }
     }
     &__cancel{
         border-radius: 20px;
