@@ -135,7 +135,7 @@ function AddWarehouse(){
                   />
 
             </div>
-            <hr className="divider" />
+            <hr className="divider__middle" />
             <div className="warehouseForm__contact">
                 <h2 className="warehouseForm__titles">Contact Details</h2>
 
