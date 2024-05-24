@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
@@ -12,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<WarehousesPage />}/>
           <Route path="/warehouses" element={<WarehousesPage />} />
+          <Route path="/warehouses/details" element={<Navigate to="/warehouses/details/1"/>} />
           <Route path="/warehouses/details/:warehouseId" element={< WarehouseDetailsPage />} />
           <Route path="/inventories"/>
         </Routes>

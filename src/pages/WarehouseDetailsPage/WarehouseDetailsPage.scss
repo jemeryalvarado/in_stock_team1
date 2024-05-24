@@ -1,8 +1,47 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+// Eg.  
+
+//  @include media-query_('mobile'){
+//     visibility: hidden;
+//  }
+//  @include media-query_('tablet'){
+//      //style goes here
+//  }
+
+//  @include media-query_('desktop'){
+//     //style goes here
+//  }
+
 .divider {
     border: ($Cloud 1px solid);
+}
+.divider2 {
+    border: ($Cloud 1px solid);
+
+    @include media-query_('mobile'){
+        visibility: hidden;
+     }
+
+    @include media-query_('tablet'){
+        margin: 1rem;
+    }
+
+    @include media-query_('desktop'){
+        margin: 1rem;
+    }
+}
+.divider3 {
+    border: ($Cloud 1px solid);
+
+    @include media-query_('tablet'){
+        visibility: hidden;
+    }
+
+    @include media-query_('desktop'){
+        visibility: hidden;
+    }
 }
 
 .warehouse {
@@ -29,8 +68,9 @@
             @include text-styles('PageHeader', true);
             display: flex;
 
-            &-icon{
+            & a{
                 margin-right: 0.5rem;
+                padding-top: 0.25rem;
             }
         }
 
@@ -42,13 +82,23 @@
             border-radius: 20px;
 
             &-icon{
-                padding: 0.5rem;
+                padding: 0.37rem;
             }
         }
     }
 
     &__details{
         margin: 0 1.5rem;
+
+         @include media-query_('tablet'){
+            display: flex;
+            justify-content: space-around;
+         }
+    
+         @include media-query_('desktop'){
+            display: flex;
+            justify-content: space-around;
+         }        
 
         &--address{
             display: flex;
@@ -70,6 +120,14 @@
         &--contact{
             display: flex;
             justify-content: space-between;
+
+            @include media-query_('tablet'){
+                width: 50%;
+            }
+
+            @include media-query_('desktop'){
+                width: 50%;
+            }
 
             &-name{
 

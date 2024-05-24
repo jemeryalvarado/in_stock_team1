@@ -2,7 +2,7 @@ import "./WarehouseDetailsPage.scss"
 import edit from "../../assets/icons/wht-edit_24dp.svg";
 import back from "../../assets/icons/arrow_back-24px.svg";
 import { useState, useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
@@ -22,6 +22,8 @@ function WarehouseDetailsPage () {
     fetchWarehouseDetails();
   }, [warehouseId])
 
+  console.log(state)
+
   return (
     <>
       <div className="warehouse">
@@ -31,15 +33,16 @@ function WarehouseDetailsPage () {
               {state.city}
             </h1>
             <div className="warehouse__title--edit">
-              <img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" />
+              <Link to="/warehouses/edit/:warehouseId"><img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" /></Link> 
             </div>
           </div>
         <div className="divider"></div>
           <div className="warehouse__details">
             <div className="warehouse__details--address">
               <h4>WAREHOUSE ADDRESS:</h4>
-              <p>{state.address}</p>
+              <p>{state.address}<br/>{state.city},{state.country}</p>
             </div>
+        <div className="divider2"></div>    
             <div className="warehouse__details--contact">
               <div className="warehouse__details--contact-name">
                 <h4>CONTACT NAME:</h4>
@@ -59,7 +62,7 @@ function WarehouseDetailsPage () {
               </div>
             </div> 
           </div>
-        <div className="divider"></div>
+        <div className="divider3"></div>
       </div>
     </>
   )
