@@ -6,22 +6,26 @@ import { Link, Navigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
-function WarehouseDetailsPage ({ baseUrl }) {
+const baseUrl = process.env.REACT_APP_BASE_URL
+
+function WarehouseDetailsPage () {
+
+  const [state, setState] = useState([])
 
   const { warehouseId } = useParams();
-  const [ warehouse, setWarehouse ] = useState( warehouseId );
 
 // useEffect() to render only once, or when our dependancy changes
-
   useEffect(() => {
     const fetchWarehouseDetails = () => {
       axios.get(`${baseUrl}/warehouses/${warehouseId}`)
       .then(response => {
-        console.log(response.data)
+        setState(response.data)
       })
     }
     fetchWarehouseDetails();
-  }, [])
+  }, [warehouseId])
+
+  console.log('state', state)
 
   return (
     <>
@@ -29,7 +33,7 @@ function WarehouseDetailsPage ({ baseUrl }) {
           <div className="warehouse__title">
             <h1 className="warehouse__title--text">
               <img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" />
-              Washington
+              {state.city}
             </h1>
             <div className="warehouse__title--edit">
               <img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" />
@@ -39,23 +43,23 @@ function WarehouseDetailsPage ({ baseUrl }) {
           <div className="warehouse__details">
             <div className="warehouse__details--address">
               <h4>WAREHOUSE ADDRESS</h4>
-              <p>33 Pearl Street SW, Washington, USA</p>
+              <p>{state.address}</p>
             </div>
             <div className="warehouse__details--contact">
               <div className="warehouse__details--contact-name">
                 <h4>CONTACT NAME:</h4>
                 <p>
-                  Graeme Lyon
+                  {state.contact_name}
                   <br/>
-                  Warehouse Manager
+                  {state.contact_position}
                 </p>
               </div>
               <div className="warehouse__details--contact-info">
                 <h4>CONTACT INFORMATION:</h4>
                 <p>
-                  +1 (647) 504-0911
+                  {state.contact_phone}
                   <br/>
-                  glyon@instock.com
+                  {state.contact_email}
                 </p>
               </div>
             </div> 

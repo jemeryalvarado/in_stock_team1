@@ -5,9 +5,6 @@ import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage"
 import "./App.scss";
 
-const baseUrl = process.env.REACT_APP_BASE_URL
-console.log(baseUrl)
-
 function App() {
   return (
     <Router>
@@ -15,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<WarehousesPage />}/>
           <Route path="/warehouses" element={<WarehousesPage />} />
-          <Route path="/warehouses/details/:warehouseId" element={< WarehouseDetailsPage baseUrl={baseUrl} />} />
+          <Route path="/warehouses/details/:warehouseId" element={< WarehouseDetailsPage />} />
           <Route path="/inventories"/>
         </Routes>
       <Footer />
