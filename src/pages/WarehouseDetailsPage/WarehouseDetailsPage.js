@@ -9,12 +9,9 @@ import axios from 'axios';
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 function WarehouseDetailsPage () {
-
   const [state, setState] = useState([])
-
   const { warehouseId } = useParams();
 
-// useEffect() to render only once, or when our dependancy changes
   useEffect(() => {
     const fetchWarehouseDetails = () => {
       axios.get(`${baseUrl}/warehouses/${warehouseId}`)
@@ -25,14 +22,12 @@ function WarehouseDetailsPage () {
     fetchWarehouseDetails();
   }, [warehouseId])
 
-  console.log('state', state)
-
   return (
     <>
       <div className="warehouse">
           <div className="warehouse__title">
             <h1 className="warehouse__title--text">
-              <img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" />
+              <Link to="/warehouses"><img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" /></Link>
               {state.city}
             </h1>
             <div className="warehouse__title--edit">
@@ -42,7 +37,7 @@ function WarehouseDetailsPage () {
         <div className="divider"></div>
           <div className="warehouse__details">
             <div className="warehouse__details--address">
-              <h4>WAREHOUSE ADDRESS</h4>
+              <h4>WAREHOUSE ADDRESS:</h4>
               <p>{state.address}</p>
             </div>
             <div className="warehouse__details--contact">
