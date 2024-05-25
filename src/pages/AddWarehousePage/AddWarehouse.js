@@ -45,7 +45,6 @@ function AddWarehouse(){
 
     for (const [key,value] of Object.entries(newWarehouse)){
      if(!value){
-       console.log('empty field for: ', key)
        fieldsValid = false;
        fieldErrors[key] = "This field is required";
      }
@@ -67,46 +66,45 @@ function AddWarehouse(){
     event.preventDefault();
 
     if (validate()){
-      console.log('all fields are good!')
+       setWarehouse({
+        warehouse_name:"",
+        address:"",
+        city:"",
+        country:"",
+        contact_name:"",
+        contact_position:"",
+        contact_phone:"",
+        contact_email:"",
+        });
+    
+        const postData =() =>{
+          const response = axios
+          .post(`${baseURL}/warehouses`,{
+            warehouse_name: newWarehouse.warehouse_name,
+            address: newWarehouse.address,
+            city: newWarehouse.city,
+            country: newWarehouse.country,
+            contact_name: newWarehouse.contact_name,
+            contact_position: newWarehouse.contact_position,
+            contact_phone: newWarehouse.contact_phone,
+            contact_email: newWarehouse.contact_email,
+          })
+          .then((response)=>{
+            return response.data;
+          })
+          .catch((error) =>{
+            console.error(error)
+          });
+          return response;
+        };
+    
+        postData();
+        navigate("/")
     } else{
       console.log('Error in one of fields')
     }
  
-      // setWarehouse({
-      //   warehouse_name:"",
-      //   address:"",
-      //   city:"",
-      //   country:"",
-      //   contact_name:"",
-      //   contact_position:"",
-      //   contact_phone:"",
-      //   contact_email:"",
-      //   });
     
-        // const postData =() =>{
-        //   const response = axios
-        //   .post(`${baseURL}/warehouses`,{
-        //     warehouse_name: newWarehouse.warehouse_name,
-        //     address: newWarehouse.address,
-        //     city: newWarehouse.city,
-        //     country: newWarehouse.country,
-        //     contact_name: newWarehouse.contact_name,
-        //     contact_position: newWarehouse.contact_position,
-        //     contact_phone: newWarehouse.contact_phone,
-        //     contact_email: newWarehouse.contact_email,
-        //   })
-        //   .then((response)=>{
-        //     console.log(response.data);
-        //     return response.data;
-        //   })
-        //   .catch((error) =>{
-        //     console.error(error)
-        //   });
-        //   return response;
-        // };
-    
-        // postData();
-        // navigate("/")
     
   };
 
