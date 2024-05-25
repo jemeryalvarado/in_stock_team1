@@ -12,6 +12,10 @@
     background-color: $LightGrey;
     height: 100vh;
 
+    @include media-query_('mobile'){
+        padding-top: 10rem; 
+    }
+
     &__copyright{
         padding-bottom: 5rem;
 

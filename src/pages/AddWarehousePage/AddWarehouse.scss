@@ -49,8 +49,8 @@
     position: absolute;
     z-index: 3;
     width: 90%;
-    height: 90vh;
-    top: 12.75rem;
+    height: fit-content;
+    top: 25.75rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -59,11 +59,12 @@
     border-radius: 3px;
 
     @include media-query_('tablet'){
-        top: -6.1875rem;
+        top: 2.875rem;
+        height: 77vh;
     }
     @include media-query_('desktop'){
-        top: -84px;
-        height: 60vh;
+        top: -27px;
+        height: 61vh;
         width: 79%;
     }
     
@@ -172,7 +173,7 @@
             justify-content: end;
             padding-right: 1rem;
             gap: 10px;
-            width: 88vw;
+            width: auto;
             
         }
 
@@ -181,7 +182,7 @@
             flex-direction: row;
             justify-content: end;
             gap: 10px;
-            width: 100%;
+            width: auto;
         }
     }
     &__cancel{
