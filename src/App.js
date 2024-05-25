@@ -3,7 +3,6 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import InventoriesPage from "./pages/InventoriesPage/InventoriesPage.js"
-import InventoriesPage from "./pages/InventoriesPage/InventoriesPage"
 import "./App.scss";
 
 function App() {
