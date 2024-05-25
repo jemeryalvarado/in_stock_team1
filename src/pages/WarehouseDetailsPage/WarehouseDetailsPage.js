@@ -18,6 +18,11 @@ function WarehouseDetailsPage () {
       .then(response => {
         setState(response.data)
       })
+      .catch(error => {
+        console.error(error)
+        alert(`Warehouse ${warehouseId} does not exist`)
+        window.location = '/warehouses'
+      })
     }
     fetchWarehouseDetails();
   }, [warehouseId])
