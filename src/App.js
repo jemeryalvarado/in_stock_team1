@@ -19,7 +19,7 @@ function App() {
 
           <Route path="/" element={<WarehousesPage />}/>
           <Route path="/warehouses" element={<WarehousesPage />} />
-          <Route path="/inventories" element={<InventoriesPage />} element={<InventoriesPage />} />
+          <Route path="/inventories" element={<InventoriesPage />} />
         </Routes>
       <Footer />
     </Router>
