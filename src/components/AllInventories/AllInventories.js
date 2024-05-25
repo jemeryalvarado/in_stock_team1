@@ -30,7 +30,7 @@ const AllInventories = () => {
             placeholder="Search"
             className="container-searchbox"
           />
-          <Link to="/add-new-inventory">
+          <Link >
             <button>Add New Inventory Item</button>
           </Link>
         </div>
@@ -41,7 +41,7 @@ const AllInventories = () => {
           <div className="inventory-container">
             <section>
               <h3>INVENTORY ITEM</h3>
-              <Link to={`/inventory/${inventory.id}`}>
+              <Link >
                 <p className="container-text">{inventory.item_name}</p>
               </Link>
               <h3>CATEGORY</h3>
@@ -56,10 +56,10 @@ const AllInventories = () => {
               <p className="container-text">{inventory.warehouse_name}</p>
             </section>
             <section className="container-icons">
-              <Link to={`/delete-inventory/${inventory.id}`}>
+              <a href="">
                 <img src={deleteIcon} alt="delete" />
-              </Link>
-              <Link to={`/edit-inventory/${inventory.id}`}>
+                </a>
+              <Link >
                 <img src={editIcon} alt="edit" />
               </Link>
             </section>
