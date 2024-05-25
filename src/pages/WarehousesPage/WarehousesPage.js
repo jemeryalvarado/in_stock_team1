@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./WarehousesPage.scss";
 import AllWarehouses from "../../components/AllWarehouses/AllWarehouses";
 import Modal from "../../components/Modal/Modal";
@@ -20,6 +21,12 @@ function WarehousesPage(){
          <AllWarehouses></AllWarehouses>
             {/* <button onClick={openModal}>Modal</button>
             <Modal isOpen={modalIsOpen} onClose={closeModal} warehouse_name = {"Washington"} /> */}
+            <button onClick={openModal}>Modal</button>
+            <Modal isOpen={modalIsOpen} onClose={closeModal} warehouse_name = {"Washington"} />
+
+          <Link to="/addwarehouses">
+            <button>Add Warehouse</button>
+          </Link> 
         </div>
     )
 }
