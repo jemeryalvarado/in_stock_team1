@@ -27,8 +27,6 @@ function WarehouseDetailsPage () {
     fetchWarehouseDetails();
   }, [warehouseId])
 
-  console.log(state)
-
   return (
     <>
       <div className="warehouse">
