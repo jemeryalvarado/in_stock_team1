@@ -1,9 +1,10 @@
 import "./WarehousesPage.scss";
+import AllWarehouses from "../../components/AllWarehouses/AllWarehouses";
 
 function WarehousesPage(){
     return(
         <div className="whitebox">
-         Empty White Box
+         <AllWarehouses></AllWarehouses>
         </div>
     )
 }

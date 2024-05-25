@@ -1,14 +1,13 @@
 import "./InventoriesPage.scss";
-import AllInventories from "../../components/AllInventories/AllInventories.js"
+import AllInventories from "../../components/AllInventories/AllInventories.js";
+import Footer from "../../components/Footer/Footer.js";
 
-function InventoriesPage() {
-  return (
-    <div className="inventories-page">
-      <div className="whitebox">
-        <AllInventories />
-      </div>
-    </div>
-  )
+const InventoriesPage = ()=>{
+    return(
+        <div className="whitebox">
+        <AllInventories/>
+        </div>
+    )
 }
 
 export default InventoriesPage;

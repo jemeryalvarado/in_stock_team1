@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
+import InventoriesPage from "./pages/InventoriesPage/InventoriesPage.js"
 import InventoriesPage from "./pages/InventoriesPage/InventoriesPage"
 import "./App.scss";
 
@@ -18,7 +19,7 @@ function App() {
 
           <Route path="/" element={<WarehousesPage />}/>
           <Route path="/warehouses" element={<WarehousesPage />} />
-          <Route path="/inventories" element={<InventoriesPage />}/>
+          <Route path="/inventories" element={<InventoriesPage />} element={<InventoriesPage />} />
         </Routes>
       <Footer />
     </Router>
