@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables' as *;
 
 .all-inventories {
-  width: 80%;
+  width: 100%;
   margin: auto;
 
   .tsb {
@@ -11,6 +11,8 @@
     align-items: start;
     color: $InstockBlack;
     margin-bottom: 1.5rem;
+    width: 80%;
+      margin: auto;
 
     &-title {
       @include text-styles("PageHeader", true);
@@ -18,8 +20,9 @@
 
     .tsb_sb {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      width: 100%;
+      
 
       input {
         width: 60%;
@@ -40,7 +43,8 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
-    border-bottom: 1px solid $Cloud;
+    width: 80%;
+    margin: auto;
 
     section {
       h3 {
@@ -56,10 +60,14 @@
     .container-icons {
       display: flex;
       gap: 1rem;
+      flex-direction: row;
       
       img {
         cursor: pointer;
       }
     }
   }
+}
+.break{
+    border-top: 1px solid $Cloud;
 }

@@ -55,7 +55,9 @@ const AllInventories = () => {
               <h3>WAREHOUSE</h3>
               <p className="container-text">{inventory.warehouse_name}</p>
             </section>
-            <section className="container-icons">
+            
+          </div>
+          <section className="container-icons">
               <a href="">
                 <img src={deleteIcon} alt="delete" />
                 </a>
@@ -63,7 +65,6 @@ const AllInventories = () => {
                 <img src={editIcon} alt="edit" />
               </Link>
             </section>
-          </div>
         </div>
       ))}
       {error && <p className="error-message">{error}</p>}
