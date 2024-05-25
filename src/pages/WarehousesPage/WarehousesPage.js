@@ -3,7 +3,7 @@ import AllWarehouses from "../../components/AllWarehouses/AllWarehouses";
 
 function WarehousesPage(){
     return(
-        <div>
+        <div className="whitebox">
          <AllWarehouses></AllWarehouses>
         </div>
     )
