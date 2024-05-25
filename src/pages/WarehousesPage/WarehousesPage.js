@@ -1,5 +1,7 @@
 import "./WarehousesPage.scss";
 import "../../components/Main/EditInventory.scss"
+import Modal from "../../components/Modal/Modal";
+import { useState } from "react";
 
 function WarehousesPage(){
 
