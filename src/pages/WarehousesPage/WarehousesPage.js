@@ -1,10 +1,4 @@
 import "./WarehousesPage.scss";
-<<<<<<< HEAD
-import WarehouseDetails from "../WarehouseDetailsPage/WarehouseDetailsPage";
-
-function WarehousesPage (){
-    return
-=======
 import Modal from "../../components/Modal/Modal";
 import { useState } from "react";
 
@@ -26,7 +20,6 @@ function WarehousesPage(){
             <Modal isOpen={modalIsOpen} onClose={closeModal} warehouse_name = {"Washington"} />
         </div>
     )
->>>>>>> develop
 }
 
 export default WarehousesPage;
