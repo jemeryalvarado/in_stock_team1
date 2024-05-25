@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import "./App.scss";
+import EditInventory from "./components/Main/EditInventory";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<WarehousesPage />}/>
           <Route path="/warehouses" element={<WarehousesPage />} />
           <Route path="/inventories"/>
+          <Route path="/inventories/edit" element={<EditInventory />}/>
         </Routes>
       <Footer />
     </Router>

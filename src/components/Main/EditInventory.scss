@@ -1,0 +1,241 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.section{
+    background-color: $White;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 3;
+    width: 90vw;
+    height: 82vh;
+    top: 10rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #13182C;
+    box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+
+    @include media-query_('tablet') {
+        height: 81.5vh;
+        top: 152px;
+    }
+
+    @include media-query_('desktop') {
+        top: 154px;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 36px;
+        padding-bottom: 1rem;
+        border-bottom: $Cloud solid 1px;
+
+        @include media-query_('tablet') {
+            justify-content: flex-start;
+            padding-left: 2rem;
+        }
+
+        @include media-query_('desktop') {
+            justify-content: flex-start;
+            padding-left: 2rem;
+        }
+
+        &__img {
+           height: 16px;
+           width: 16px; 
+           top: 4px;
+           bottom: 4px;
+           padding-right: .5rem;
+        }
+    }
+
+    .section__divs {
+        @include media-query_('tablet') {
+            display: flex;
+            justify-content: center;
+        }
+        @include media-query_('desktop') {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+    &__details-section {
+        border-bottom: solid $Cloud 1px;
+       
+        @include media-query_('tablet') {
+            width: 45%;  
+            border-bottom: none;
+        }
+        @include media-query_('desktop') {
+            width: 45%;  
+            border-bottom: none;
+        }
+        
+        &__title {
+            // @include text-styles('SubHeader', true);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
+            padding-bottom: 1rem;
+            margin: 1rem;
+
+            @include media-query_('tablet') {
+                // @include text-styles('SubHeader');
+            }
+
+            @include media-query_('desktop'){
+            }
+        }
+
+        &__div{
+
+            &__form {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+
+
+                &__label {
+                    display: flex;
+                    flex-direction: column;
+                    padding-bottom: 1rem;
+                    font-size: 13px;
+                    line-height: 20px;
+                    font-weight: 600;
+
+                    &__input {
+                        border-radius: 20px;
+                        border: solid 1px $Cloud;
+                        height: 36px;
+                        width: 97%;
+                        font-size: 13px;
+                        line-height: 20px;
+                        font-weight: 400;
+                        margin-top: 0.5rem;
+                        padding-left: 10px;
+                        color: #13182C;
+
+                        @include media-query_('tablet') {
+                            font-size: 14px;
+                            line-height: 22px;
+                            color: #13182C;
+                        }
+
+                    }
+
+                    &__text {
+                        border-radius: 20px;
+                        border: solid 1px $Cloud;
+                        height: 120px;
+                        margin-top: 0.5rem;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    &__availability-section{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        @include media-query_('tablet') {
+            width: 45%;  
+            border-left: solid $Cloud 1px;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @include media-query_('desktop') {
+            width: 45%;  
+            border-bottom: none;
+            border-left: solid $Cloud 1px;
+            padding-left: 1.5rem;
+        }
+
+        &__title {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
+            padding-bottom: 1rem;
+        }
+
+        &__div {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 13px;
+        }
+
+        &__label {
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        &__buttons {
+            height: 68px;
+            background-color: $LightGrey;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+
+            @include media-query_('tablet') {
+                justify-content: flex-end;
+            }
+
+            @include media-query_('desktop') {
+                justify-content: flex-end;
+            }
+
+            &__cancel {
+                height: 36px;
+                width: 139px;
+                border-radius: 20px;
+                border: solid 1px $Cloud;
+                background-color: $White;
+
+                @include media-query_('tablet') {
+                    width: 61px;
+                }
+
+                @include media-query_('desktop') {
+                    width: 61px;
+                }
+            }
+
+            &__save {
+                height: 36px;
+                width: 139px;
+                border-radius: 20px;
+                border: none;
+                background-color: $InstockIndigo;
+                color: $White;
+
+                @include media-query_('tablet') {
+                    width: 61px;
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                }
+                @include media-query_('desktop') {
+                    width: 61px;
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                }
+            }
+        }
+        
+    }
+
+}

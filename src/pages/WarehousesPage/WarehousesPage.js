@@ -1,4 +1,5 @@
 import "./WarehousesPage.scss";
+import "../../components/Main/EditInventory.scss"
 
 function WarehousesPage(){
     return(
