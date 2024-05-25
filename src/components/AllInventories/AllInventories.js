@@ -30,7 +30,7 @@ const AllInventories = () => {
           type="text"
           placeholder="Search..."
           className="tsb_sb-searchbox"
-        > img </input>
+        />  
         <Link className="tsb-button-link">
         <button className="tsb-button"> Add New Item </button>
         </Link>
