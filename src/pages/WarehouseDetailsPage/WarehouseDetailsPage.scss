@@ -1,19 +1,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-// Eg.  
-
-//  @include media-query_('mobile'){
-//     visibility: hidden;
-//  }
-//  @include media-query_('tablet'){
-//      //style goes here
-//  }
-
-//  @include media-query_('desktop'){
-//     //style goes here
-//  }
-
 .divider {
     border: ($Cloud 1px solid);
 }
@@ -25,11 +12,11 @@
      }
 
     @include media-query_('tablet'){
-        margin: 1rem;
+        margin: 1rem 0;
     }
 
     @include media-query_('desktop'){
-        margin: 1rem;
+        margin: 1rem 0;
     }
 }
 .divider3 {
@@ -51,6 +38,9 @@
     position: absolute;
     z-index: 3;
     width: 90vw;
+    @include media-query_('desktop'){
+        width: 80vw;
+    }
     height: 70vh;
     top: 3.75rem;
     bottom: 0;
@@ -62,24 +52,49 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 0.5rem 1.5rem;
+        margin: 0.5rem 1.5rem 0;
+        @include media-query_('tablet'){
+            margin: 1rem 2rem 0;
+         }
+    
+         @include media-query_('desktop'){
+            margin: 1rem 2.5rem 0;
+         }   
+
 
         &--text{
-            @include text-styles('PageHeader', true);
+             @include media-query_('mobile'){
+                @include text-styles('PageHeader', true)
+             }
+            @include text-styles('PageHeader');
             display: flex;
 
             & a{
                 margin-right: 0.5rem;
-                padding-top: 0.25rem;
+                padding-top: 0.125rem;
             }
         }
 
         &--edit{
-            width: 36px;
-            height: 36px;
+            width: 5.75rem;
+            @include media-query_('mobile'){
+                width: 2.5rem;
+            }
+            height: 2.5rem;
             display: flex;
             background-color: $InstockIndigo;
             border-radius: 20px;
+            text-decoration: none;
+
+            &-text{
+                margin: auto;
+                color: $White;
+                @include text-styles('LabelsLinksButtons');
+
+                @include media-query_('mobile'){
+                    visibility: hidden;
+                }
+            }
 
             &-icon{
                 padding: 0.37rem;
@@ -91,27 +106,38 @@
         margin: 0 1.5rem;
 
          @include media-query_('tablet'){
+            margin: 0 2rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
          }
     
          @include media-query_('desktop'){
+            margin: 0 2.5rem;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
          }        
 
         &--address{
             display: flex;
             flex-direction: column;
+            @include media-query_('desktop'){
+                width: 30%;
+            }
             
             & h4{
-                @include text-styles('TableHeader', true);
+                 @include media-query_('mobile'){
+                    @include text-styles('TableHeader', true);
+                }
+                @include text-styles('TableHeader');
                 margin-bottom: 0;
                 color: $Slate                                                       
             }
 
             & p{
-                @include text-styles('BodyMedium', true);
+                 @include media-query_('mobile'){
+                    @include text-styles('BodyMedium', true);
+                }    
+                @include text-styles('BodyMedium');
                 margin-top: 0.25rem;
                 color: $InstockBlack
             }
@@ -122,38 +148,64 @@
             justify-content: space-between;
 
             @include media-query_('tablet'){
-                width: 50%;
+                width: 60%;
+                justify-content: flex-start;
             }
 
             @include media-query_('desktop'){
-                width: 50%;
+                width: 60%;
+                justify-content: flex-start;
             }
 
             &-name{
+                @include media-query_('tablet'){
+                    width: 50%;
+                }
+                @include media-query_('desktop'){
+                    width: 50%;
+                }
 
                 & h4{
-                    @include text-styles('TableHeader', true);
+                    @include media-query_('mobile'){
+                        @include text-styles('TableHeader', true);
+                    }
+                    @include text-styles('TableHeader');
                     margin-bottom: 0;
                     color: $Slate                                                       
                 }
     
                 & p{
-                    @include text-styles('BodyMedium', true);
+                    @include media-query_('mobile'){
+                        @include text-styles('BodyMedium', true);
+                    }
+                    @include text-styles('BodyMedium');
                     margin-top: 0.25rem;
                     color: $InstockBlack
                 }
             }
 
             &-info{
+                @include media-query_('tablet'){
+                    width: 50%;
+                }
+                @include media-query_('desktop'){
+                    width: 50%;
+                }
 
                 & h4{
-                    @include text-styles('TableHeader', true);
+                    @include media-query_('mobile'){
+                        @include text-styles('TableHeader', true);
+                    }
+                    @include text-styles('TableHeader');
                     margin-bottom: 0;
                     color: $Slate
                 }
     
                 & p{
-                    @include text-styles('BodyMedium', true);
+                    @include media-query_('mobile'){
+                        @include text-styles('BodyMedium', true);
+                    }
+                    @include text-styles('BodyMedium');
                     margin-top: 0.25rem;
                     color: $InstockBlack
                 }

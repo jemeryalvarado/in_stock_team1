@@ -32,9 +32,10 @@ function WarehouseDetailsPage () {
               <Link to="/warehouses"><img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" /></Link>
               {state.city}
             </h1>
-            <div className="warehouse__title--edit">
-              <Link to="/warehouses/edit/:warehouseId"><img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" /></Link> 
-            </div>
+            <Link className="warehouse__title--edit" to="/warehouses/edit/:warehouseId">
+              <img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" />
+              <p className="warehouse__title--edit-text">Edit</p>
+            </Link> 
           </div>
         <div className="divider"></div>
           <div className="warehouse__details">
