@@ -1,0 +1,65 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.all-inventories {
+  width: 80%;
+  margin: auto;
+
+  .tsb {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: $InstockBlack;
+    margin-bottom: 1.5rem;
+
+    &-title {
+      @include text-styles("PageHeader", true);
+    }
+
+    .tsb_sb {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      input {
+        width: 60%;
+        padding: 0.5rem;
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .inventory-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid $Cloud;
+
+    section {
+      h3 {
+        color: $Slate;
+        @include text-styles("TableHeader", true);
+      }
+
+      .container-text {
+        margin: 0.5rem 0;
+      }
+    }
+
+    .container-icons {
+      display: flex;
+      gap: 1rem;
+      
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}
