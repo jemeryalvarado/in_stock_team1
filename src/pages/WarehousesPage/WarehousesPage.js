@@ -18,8 +18,8 @@ function WarehousesPage(){
     return(
         <div className="whitebox">
          <AllWarehouses></AllWarehouses>
-            <button onClick={openModal}>Modal</button>
-            <Modal isOpen={modalIsOpen} onClose={closeModal} warehouse_name = {"Washington"} />
+            {/* <button onClick={openModal}>Modal</button>
+            <Modal isOpen={modalIsOpen} onClose={closeModal} warehouse_name = {"Washington"} /> */}
         </div>
     )
 }

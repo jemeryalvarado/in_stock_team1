@@ -42,7 +42,7 @@ const AllWarehouses = () => {
           <div className="container">
             <section>
               <h3>WAREHOUSE</h3>
-              <Link to>
+              <Link to={`/warehouses/${warehouse.id}`}>
                 <p className="container-text">{warehouse.warehouse_name}</p>
               </Link>
               <h3>ADDRESS</h3>
