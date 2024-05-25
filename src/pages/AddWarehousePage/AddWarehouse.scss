@@ -205,6 +205,28 @@
             height: 38px;
         }
     }
+
+    &__errorWrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .25rem;
+        position: relative;
+        bottom: .75rem;
+    }
+
+    &__errorMessage{
+        color: $Red;
+        position: relative; 
+        @include media-query_('tablet') {
+          @include text-styles('BodySmall');
+        }
+    }
+
+    &__errorImage{
+        width: 16px;
+    }
+
 }
 
 .divider{
