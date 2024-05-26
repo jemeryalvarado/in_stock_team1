@@ -4,6 +4,7 @@ import error_icon from "../../assets/icons/error-24px.svg";
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function ShowError({errorMessage, fieldInvalid}){
     if (fieldInvalid){
@@ -91,7 +92,6 @@ function EditInventory({ match }) {
             quantity: stockStatus === 'In Stock' ? parseInt(quantity, 10) : 0
             });
           console.log('Update Successful:', response.data);
-        //   navigate(-1);
         } catch (error) {
             console.error('Error updating inventory:', error);
         }
@@ -100,7 +100,9 @@ function EditInventory({ match }) {
     return(
         <section className="section">
             <h1 className="section__title">
-                <img className="section__title__img" src={arrowBack} alt="Arrow Back Icon"/>
+            <Link to="/inventories">
+                <img className="section__title__img" src={arrowBack} alt="Arrow Back Icon" />
+            </Link>
                 Edit Inventory Item
             </h1>
             <section className="section__divs">
