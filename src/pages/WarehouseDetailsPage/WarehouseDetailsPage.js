@@ -112,7 +112,7 @@ function WarehouseDetailsPage () {
                   <h3 className="inventories__container--headers">CATEGORY</h3>
                   <p className="inventories__container-text">{inventory.category} </p>
                 </div>
-                <div>
+                <div className="inventories__container__statusQuantity">
                   <h3 className="inventories__container--headers">STATUS</h3>
                   <InventoryStatus status={ inventory.status }/>
                   <h3 className="inventories__container--headers">QTY</h3>

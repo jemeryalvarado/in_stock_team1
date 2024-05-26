@@ -259,6 +259,13 @@
         }
     }
 
+    &__container__statusQuantity{
+        @include media-query_ ('mobile'){
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     &__container--icons{
         display: flex;
         flex-direction: row;
@@ -270,6 +277,8 @@
         border-radius: 20px;
         padding: 4px 8px 4px 8px;
         font-weight: bold;
+        text-transform: uppercase;
+        font-size: 10px;
 
     }
     
@@ -279,14 +288,21 @@
         border-radius: 20px;
         padding: 4px 8px 4px 8px;
         font-weight: bold;
+        text-transform: uppercase;
+        font-size: 10px;
     }
     
 }
 
-.Footer{
-
+.footer {
     @include media-query_('mobile'){
-        padding-top: 99rem; 
+        padding-top: 150rem; 
+    }
+    @include media-query_('tablet'){
+        padding-top: 45rem; 
+    }
+    @include media-query_('desktop'){
+        padding-top: 40rem; 
     }
 }
 
