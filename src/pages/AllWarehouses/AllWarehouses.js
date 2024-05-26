@@ -22,7 +22,7 @@ const AllWarehouses = () => {
   }, []);
 
   return (
-    <div >
+    <div className="box" >
     <section className="tsbw">
       <h1 className="tsbw-title">Warehouses</h1>
       <div className="tsbw_sb">
@@ -37,7 +37,7 @@ const AllWarehouses = () => {
       </div>
     </section>
       {warehouses.map((warehouse) => (
-        <div className="box" key={warehouse.id} >
+        <div  key={warehouse.id} >
                         <div className="break"></div>
         <div className="master-containerw">
           <div className="containerw">
