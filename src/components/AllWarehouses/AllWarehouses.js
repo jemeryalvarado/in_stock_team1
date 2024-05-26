@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import fArrow from "../../assets/icons/chevron_right-24px.svg";
 
 const AllWarehouses = () => {
   const [warehouses, setWarehouses] = useState([]);
@@ -28,10 +29,10 @@ const AllWarehouses = () => {
       <input
         type="text"
         placeholder="Search"
-        className="container-searchbox"
+        className="tsb_sb-searchbox"
       ></input>
-      <Link>
-      <button> Add New Warehouse  </button>
+      <Link className="tsb-button-link">
+      <button className="tsb-button"> Add New Warehouse  </button>
       </Link>
       </div>
     </section>
@@ -42,8 +43,9 @@ const AllWarehouses = () => {
           <div className="container">
             <section>
               <h3>WAREHOUSE</h3>
-              <Link to={`/warehouses/${warehouse.id}`}>
+              <Link to={`/warehouses/${warehouse.id}`} className="name-chevron">
                 <p className="container-text">{warehouse.warehouse_name}</p>
+                <img src={fArrow} alt="arrow" />
               </Link>
               <h3>ADDRESS</h3>
               <p className="container-text">{warehouse.address} </p>
