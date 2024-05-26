@@ -7,6 +7,22 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import fArrow from "../../assets/icons/chevron_right-24px.svg";
 import Modal from "../../components/Modal/Modal";
+import scroll from "../../assets/icons/sort-24px.svg"
+function InventoryStatus({ status }) {
+  if (status === "In Stock") {
+    return (
+      <p className="inventories__container--stockIn">{status}</p>
+    );
+  }
+  if (status === "Out of Stock") {
+    return (
+      <p className="inventories__container--stockOut">{status}</p>
+    );
+  }
+  return (
+    <p>{status}</p> 
+  );
+}
 
 
 const AllInventories = () => {
@@ -43,11 +59,12 @@ const AllInventories = () => {
           console.log(error);
       } 
   }
+  
 
   useEffect(() => {
     getElements('inventories');
   }, []);
-
+  
   return (
     <div >
       <section className="tsb">
@@ -63,6 +80,30 @@ const AllInventories = () => {
         </Link>
         </div>
       </section>
+      <div className="labels">
+        <div  className="labels-title" id="labels-padding1">
+        <h5>INVENTORY ITEM</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding2">
+        <h5>CATEGORY</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding3">
+        <h5>STATUS</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding4">
+        <h5>QUANTITY</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding5">
+        <h5>WAREHOUSE</h5>
+        </div>
+        <div className="labels-title" id="labels-padding6">
+        <h5>ACTIONS</h5>
+        </div>
+        </div>
       {inventories.map((inventory) => (
         <div key={inventory.id}>
                         <div className="break"></div>
@@ -86,7 +127,7 @@ const AllInventories = () => {
               <h3>STATUS</h3>
               <p className="container-text">{inventory.status} </p>
               </div>
-              <div className="containerw-sectioncc">
+              <div className="containerw-sectioncce">
 
               <h3>QTY</h3>
               <p className="container-text">{inventory.quantity} </p>
@@ -116,7 +157,7 @@ const AllInventories = () => {
                   </div>
                 </Modal>
               </div>
-            <Link >
+            <Link  to={`/inventories/edit/${inventory.id}`} >
               <img src={editIcon} alt="edit" />
             </Link>
           </section>
