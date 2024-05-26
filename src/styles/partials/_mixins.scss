@@ -58,6 +58,19 @@
     }
 }
 
+@mixin search-bar($width,$height,$background-image,$background-repeat,$background-position-x,$background-position-y,$text-indent,$background-color,$border-radius,$border){
+    width: $width;
+    height: $height;
+    background-image:$background-image;
+    background-repeat: $background-repeat;
+    background-position-x:$background-position-x;
+    background-position-y:$background-position-y;
+    text-indent:$text-indent;
+    background-color:$background-color;
+    border-radius: $border-radius;
+    border: $border;
+}
+
 //###
 //Below Mixins for Layout Grid. See InStock Figma 3.Layout Grid. 
 //You can opt not to use display:grid at all, hence You will not need these mixins.

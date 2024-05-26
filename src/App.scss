@@ -4,10 +4,23 @@
 @use './styles/partials/variables' as *;
 @use './styles/partials/mixins' as *;
 
+html, body, #root, .app-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 // use this function for pixels to rem conversion
 @function rem($a:0, $b:0, $c:0){
-  @return math.div($a+$b+$c) / 16 + rem;
+  @return math.div($a+$b+$c, 16) + rem;
 }
 
 @font-face {
