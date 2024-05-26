@@ -38,7 +38,7 @@
             @include text-styles-config(13, 20, 'Regular');
         } @else if $mockup-text-style-name == 'BodySmall' {
             @include text-styles-config(11, 16, 'Regular');
-        }
+        } 
     } @else {
         @if $mockup-text-style-name == 'PageHeader' {
             @include text-styles-config(32, 40, 'SemiBold');
@@ -70,7 +70,6 @@
     border-radius: $border-radius;
     border: $border;
 }
-
 //###
 //Below Mixins for Layout Grid. See InStock Figma 3.Layout Grid. 
 //You can opt not to use display:grid at all, hence You will not need these mixins.

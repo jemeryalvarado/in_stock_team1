@@ -28,6 +28,7 @@ function WarehouseDetailsPage () {
   const [state, setState] = useState([])
   const [inventories, setInventories] = useState([]);
   const { warehouseId } = useParams();
+  const { inventoryId } = useParams();
 
   useEffect(() => {
     const fetchWarehouseDetails = () => {
@@ -45,7 +46,6 @@ function WarehouseDetailsPage () {
     const fetchInventories =() =>{
       axios.get(`${baseUrl}/warehouses/${warehouseId}/inventories`)
       .then(response =>{
-        // console.log(response.data)
         setInventories(response.data)
       })
       .catch(error =>{
@@ -105,7 +105,7 @@ function WarehouseDetailsPage () {
               <div className="inventories__container">
                 <div>
                   <h3 className="inventories__container--headers">INVENTORY ITEM</h3>
-                  <Link className="inventoryLink">
+                  <Link className="inventoryLink" to= {`/inventories/details/${inventory.id}`}>
                     <p className="inventories__container--itemName">{inventory.item_name}</p>
                     <img className="inventories__container--rightArrow" src ={rightArrow} />
                   </Link>
@@ -123,7 +123,7 @@ function WarehouseDetailsPage () {
                 <Link >
                   <img src={deleteIcon} alt="delete" />
                 </Link>
-                <Link >
+                <Link to= {`/inventories/edit/${inventory.id}`} >
                   <img src={editIcon} alt="edit" />
                 </Link>
               </div>
