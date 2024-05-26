@@ -17,11 +17,8 @@
         gap: 1rem;
        
             &-searchbox{
-                width: 99%;
-                height: 2.25rem; 
-                border-radius: 1.25rem; 
-                gap: 0.625rem;
-                border: 1px solid $Cloud;
+                
+                @include search-bar(100%,2.25rem,url("../../assets/icons/search-24px.svg"),no-repeat,16rem,.45rem,.5rem,$White,1.25rem,solid 1px $Cloud);
 
                 &::placeholder{
                     @include text-styles("BodyMedium", true);
@@ -56,7 +53,7 @@
 
 
 
-.inventory-container {
+.container {
   @include media-query_("mobile") {
     color: $InstockBlack;
     display: flex;

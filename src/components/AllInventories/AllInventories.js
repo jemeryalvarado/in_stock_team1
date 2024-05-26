@@ -40,25 +40,25 @@ const AllInventories = () => {
         <div key={inventory.id}>
                         <div className="break"></div>
 
-          <div className="inventory-container">
+          <div className="container">
             <section>
               <h3>INVENTORY ITEM</h3>
               <Link>
-                <p className="inventory-container-text">{inventory.item_name}</p>
+                <p className="container-text">{inventory.item_name}</p>
               </Link>
               <h3>CATEGORY</h3>
-              <p className="inventory-container-text">{inventory.category} </p>
+              <p className="container-text">{inventory.category} </p>
             </section>
             <section>
               <h3>STATUS</h3>
-              <p className="inventory-container-text">{inventory.status} </p>
+              <p className="container-text">{inventory.status} </p>
               <h3>QTY</h3>
-              <p className="inventory-container-text">{inventory.quantity} </p>
+              <p className="container-text">{inventory.quantity} </p>
               <h3>WAREHOUSE</h3>
-              <p className="inventory-container-text">{inventory.warehouse_name} </p>
+              <p className="container-text">{inventory.warehouse_name} </p>
             </section>
           </div>
-          <section className="inventory-container-icons">
+          <section className="container-icons">
             <Link >
               <img src={deleteIcon} alt="delete" />
             </Link>
