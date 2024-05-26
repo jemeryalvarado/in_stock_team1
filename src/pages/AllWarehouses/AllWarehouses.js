@@ -45,7 +45,7 @@ const AllWarehouses = () => {
             <section className="containerw-section" >
               <div className="containerw-sectioncc">
               <h3>WAREHOUSE</h3>
-              <Link to={`/warehouses/${warehouse.id}`} className="name-chevron">
+              <Link to={`/warehouses/details/${warehouse.id}`} className="name-chevron">
                 <p className="containerw-text">{warehouse.warehouse_name}</p>
                 <img src={fArrow} alt="arrow" />
               </Link>
@@ -73,12 +73,13 @@ const AllWarehouses = () => {
             <a href="">
               <img src={deleteIcon} alt="delete" />
               </a>
-            <Link  >
+            <Link to={`/warehouses/edit/${warehouse.id}`} >
               <img src={editIcon} alt="edit" />
             </Link>
           </section>
         </div>
          </div>
+
       ))}
     </div>
   );
