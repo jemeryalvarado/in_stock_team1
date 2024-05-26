@@ -49,7 +49,7 @@
         width: 80vw;
     }
     height: fit-content;
-    top: 77.75rem;
+    top: 85.75rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -242,7 +242,13 @@
             }
             
           }
+
+          @include media-query_ ('tablet'){
+            display: flex;
+            flex-direction: row;
+          }
     }
+
 
     &__container--itemName{
         color:$InstockIndigo;
@@ -259,10 +265,21 @@
         }
     }
 
-    &__container__statusQuantity{
+    &__container--statusQuantity{
         @include media-query_ ('mobile'){
             display: flex;
             flex-direction: column;
+        }
+        @include media-query_ ('tablet'){
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__container--titleCategory{
+        @include media-query_ ('tablet'){
+            display: flex;
+            flex-direction: row;
         }
     }
 
@@ -310,5 +327,9 @@
     text-decoration: none;
     display: flex;
     flex-direction: row;
+}
+
+.break {
+    display: none;
 }
 

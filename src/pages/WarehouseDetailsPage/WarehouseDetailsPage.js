@@ -100,10 +100,10 @@ function WarehouseDetailsPage () {
         <div className="inventories">
           {inventories.map((inventory)=>{
             return(
-              <div key={inventory.id}>
+              <div key={inventory.id} className="inventories__masterContainer">
               <div className="break"></div>
               <div className="inventories__container">
-                <div>
+                <div className="inventories__container--titleCategory">
                   <h3 className="inventories__container--headers">INVENTORY ITEM</h3>
                   <Link className="inventoryLink" to= {`/inventories/details/${inventory.id}`}>
                     <p className="inventories__container--itemName">{inventory.item_name}</p>
@@ -112,13 +112,13 @@ function WarehouseDetailsPage () {
                   <h3 className="inventories__container--headers">CATEGORY</h3>
                   <p className="inventories__container-text">{inventory.category} </p>
                 </div>
-                <div className="inventories__container__statusQuantity">
+                <div className="inventories__container--statusQuantity">
                   <h3 className="inventories__container--headers">STATUS</h3>
                   <InventoryStatus status={ inventory.status }/>
                   <h3 className="inventories__container--headers">QTY</h3>
                   <p className="inventories__container-text">{inventory.quantity} </p>
                 </div>
-              </div>
+          
               <div className="inventories__container-icons">
                 <Link >
                   <img src={deleteIcon} alt="delete" />
@@ -126,6 +126,7 @@ function WarehouseDetailsPage () {
                 <Link to= {`/inventories/edit/${inventory.id}`} >
                   <img src={editIcon} alt="edit" />
                 </Link>
+              </div>
               </div>
               </div>
             )
