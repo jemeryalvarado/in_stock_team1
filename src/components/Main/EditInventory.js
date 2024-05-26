@@ -20,7 +20,7 @@ function ShowError({errorMessage, fieldInvalid}){
 };
 
 function EditInventory({ match }) {
-    const { id: inventoryId } = useParams(); // to get the inventory id from the params route
+    const { inventoryId: inventoryId  } = useParams(); // to get the inventory id from the params route
     const navigate =  useNavigate();
 
     const [itemName, setItemName] = useState('');
@@ -88,10 +88,10 @@ function EditInventory({ match }) {
             description: itemDescription,
             category: category,
             status: stockStatus,
-            quantity: stockStatus === 'inStock' ? parseInt(quantity, 10) : null
+            quantity: stockStatus === 'In Stock' ? parseInt(quantity, 10) : 0
             });
           console.log('Update Successful:', response.data);
-          navigate(-1);
+        //   navigate(-1);
         } catch (error) {
             console.error('Error updating inventory:', error);
         }
@@ -140,7 +140,7 @@ function EditInventory({ match }) {
                                 setEditInventory({ ...editInventory, category: e.target.value });
                             }}>
                             <option value="" disabled>Select category</option>
-                            <option value={category} selected>{category}</option>
+                            <option value={category}>{category}</option>
                             <option value="electronics">Electronics</option>
                             <option value="furniture">Gear</option>
                             <option value="apparel">Apparel</option>
@@ -207,16 +207,15 @@ function EditInventory({ match }) {
                             setEditInventory({ ...editInventory, warehouse_id: e.target.value });
                         }}>
                         <option value="" disabled>Select warehouse</option>
-                        <option value={warehouse} selected>{warehouse}</option>
-                        <option value="brooklyn">Brooklyn</option>
-                        <option value="washington">Washington</option>
-                        <option value="jersey">Jersey</option>
-                        <option value="sf">SF</option>
-                        <option value="santaMonica">Santa Monica</option>
-                        <option value="seattle">Seattle</option>
-                        <option value="miami">Miami</option>
-                        <option value="boston">Boston</option>
-                        <option value="manhattan">Manhattan</option>
+                        <option defaultValue={warehouse}>{warehouse}</option>
+                        <option value="1">Brooklyn</option>
+                        <option value="2">Washington</option>
+                        <option value="3">Jersey</option>
+                        <option value="4">SF</option>
+                        <option value="5">Santa Monica</option>
+                        <option value="6">Seattle</option>
+                        <option value="7">Miami</option>
+                        <option value="8">Boston</option>
                     </select>
                     <ShowError fieldInvalid={fieldStatus.warehouse} errorMessage={fieldStatus.warehouse}/>
                 </label>
