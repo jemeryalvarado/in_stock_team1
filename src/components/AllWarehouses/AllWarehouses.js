@@ -23,43 +23,53 @@ const AllWarehouses = () => {
 
   return (
     <div >
-    <section className="tsb">
-      <h1 className="tsb-title">Warehouses</h1>
-      <div className="tsb_sb">
+    <section className="tsbw">
+      <h1 className="tsbw-title">Warehouses</h1>
+      <div className="tsbw_sb">
       <input
         type="text"
         placeholder="Search"
-        className="tsb_sb-searchbox"
+        className="tsbw_sb-searchbox"
       ></input>
-      <Link className="tsb-button-link">
-      <button className="tsb-button"> Add New Warehouse  </button>
+      <Link className="tsbw-button-link">
+      <button className="tsbw-button"> + Add New Warehouse  </button>
       </Link>
       </div>
     </section>
       {warehouses.map((warehouse) => (
-        <div key={warehouse.id}>
+        <div key={warehouse.id} >
                         <div className="break"></div>
-
-          <div className="container">
-            <section>
+        <div className="master-containerw">
+          <div className="containerw">
+            
+            <section className="containerw-section" >
+              <div className="containerw-sectioncc">
               <h3>WAREHOUSE</h3>
               <Link to={`/warehouses/${warehouse.id}`} className="name-chevron">
-                <p className="container-text">{warehouse.warehouse_name}</p>
+                <p className="containerw-text">{warehouse.warehouse_name}</p>
                 <img src={fArrow} alt="arrow" />
               </Link>
+              </div>
+              <div className="containerw-sectionpe">
               <h3>ADDRESS</h3>
-              <p className="container-text">{warehouse.address} </p>
+              <p className="containerw-text">{warehouse.address} {warehouse.city}, USA</p>
+              </div>
             </section>
-            <section>
+            <section className="containerw-section">
+              <div className="containerw-sectionp">
               <h3>CONTACT NAME</h3>
-              <p className="container-text">{warehouse.contact_name} </p>
+              <p className="containerw-text">{warehouse.contact_name} </p> 
+              </div>
+              <div className="containerw-sectionpe">
               <h3>CONTACT INFORMATION</h3>
-              <p className="container-text">{warehouse.contact_phone} </p>
+              <p className="containerw-text">{warehouse.contact_phone} </p>
 
-              <p className="container-text">{warehouse.contact_email} </p>
+              <p className="containerw-text">{warehouse.contact_email} </p>
+              </div>
             </section>
           </div>
-          <section className="container-icons">
+          <section className="containerw-icons">
+            
             <a href="">
               <img src={deleteIcon} alt="delete" />
               </a>
@@ -68,6 +78,7 @@ const AllWarehouses = () => {
             </Link>
           </section>
         </div>
+         </div>
       ))}
     </div>
   );
