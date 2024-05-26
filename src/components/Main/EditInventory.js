@@ -41,7 +41,7 @@ function EditInventory({ match }) {
                 setItemDescription(inventory.description);
                 setCategory(inventory.category);
                 setStockStatus(inventory.status);
-                setWarehouse(inventory.warehouse_id);
+                setWarehouse(inventory.warehouse_name);
                 setQuantity(inventory.quantity);
                 setEditInventory(inventory);
             } catch (error) {
@@ -50,6 +50,8 @@ function EditInventory({ match }) {
         };
         fetchInventory();
     }, [inventoryId]);
+
+    console.log(editInventory);
 
     const validate = () => {
         const fieldErrors = {};
@@ -138,6 +140,7 @@ function EditInventory({ match }) {
                                 setEditInventory({ ...editInventory, category: e.target.value });
                             }}>
                             <option value="" disabled>Select category</option>
+                            <option value={category} selected>{category}</option>
                             <option value="electronics">Electronics</option>
                             <option value="furniture">Gear</option>
                             <option value="apparel">Apparel</option>
@@ -157,7 +160,7 @@ function EditInventory({ match }) {
                         <input
                         type="radio"
                         value="inStock"
-                        checked={stockStatus === 'inStock'}
+                        checked={stockStatus === 'In Stock'}
                         onChange={(e) => {
                             setStockStatus(e.target.value);
                             setEditInventory({ ...editInventory, status: e.target.value });
@@ -169,7 +172,7 @@ function EditInventory({ match }) {
                         <input
                             type="radio"
                             value="outOfStock"
-                            checked={stockStatus === 'outOfStock'}
+                            checked={stockStatus === 'Out of Stock'}
                             onChange={(e) => {
                                 setStockStatus(e.target.value);
                                 setEditInventory({ ...editInventory, status: e.target.value });
@@ -177,7 +180,7 @@ function EditInventory({ match }) {
                             Out of Stock
                     </label>
                 </div>
-                {stockStatus === 'inStock' && (
+                {stockStatus === 'In Stock' && (
                     <label className="section__availability-section__label">
                     Quantity
                     <input
@@ -204,6 +207,7 @@ function EditInventory({ match }) {
                             setEditInventory({ ...editInventory, warehouse_id: e.target.value });
                         }}>
                         <option value="" disabled>Select warehouse</option>
+                        <option value={warehouse} selected>{warehouse}</option>
                         <option value="brooklyn">Brooklyn</option>
                         <option value="washington">Washington</option>
                         <option value="jersey">Jersey</option>
@@ -212,6 +216,7 @@ function EditInventory({ match }) {
                         <option value="seattle">Seattle</option>
                         <option value="miami">Miami</option>
                         <option value="boston">Boston</option>
+                        <option value="manhattan">Manhattan</option>
                     </select>
                     <ShowError fieldInvalid={fieldStatus.warehouse} errorMessage={fieldStatus.warehouse}/>
                 </label>

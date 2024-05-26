@@ -9,7 +9,7 @@
     z-index: 3;
     width: 90vw;
     height: fit-content;
-    top: 30rem;
+    top: 29rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -18,11 +18,11 @@
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
 
     @include media-query_('tablet') {
-        top: 11.8rem;
+        top: 8.2rem;
     }
 
     @include media-query_('desktop') {
-        top: 11.8rem;
+        top: 8.2rem;
     }
 
     &__title {
@@ -37,12 +37,14 @@
             justify-content: flex-start;
             padding-left: 2rem;
             @include text-styles-config(32, 40, 'SemiBold');
+            padding-bottom: 1rem;
         }
 
         @include media-query_('desktop') {
             justify-content: flex-start;
             padding-left: 2rem;
             @include text-styles-config(32, 40, 'SemiBold');
+            padding-bottom: 1rem;
         }
 
         &__img {
@@ -101,7 +103,7 @@
                 &__label {
                     display: flex;
                     flex-direction: column;
-                    padding-bottom: 1rem;
+                    margin-bottom: 1rem;
                     @include text-styles-config(13, 20, 'SemiBold');
 
                     @include media-query_('tablet'){
@@ -117,10 +119,14 @@
                         border: solid 1px $Cloud;
                         height: 2.25rem;
                         width: 97%;
-                        @include text-styles-config(13, 20, 'SemiBold');
+                        @include text-styles('BodyMedium');
                         margin-top: 0.5rem;
                         padding-left: 0.625rem;
                         color: #13182C;
+
+                        @include media-query_('mobile') {
+                            @include text-styles('BodyMedium', true);
+                        }
 
                         @include media-query_('tablet') {
                             @include text-styles-config(14, 22, 'SemiBold');
@@ -137,6 +143,9 @@
                         border: solid 1px $Cloud;
                         height: 7.5rem;
                         margin-top: 0.5rem;
+                        @include text-styles('BodyMedium');
+                        padding: 0.625rem;
+                        font-family: 'SemiBold';
                     }
                 }
             }
@@ -162,6 +171,7 @@
             border-bottom: none;
             border-left: solid $Cloud 1px;
             padding-left: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         &__title {
@@ -195,7 +205,7 @@
 
         &__label {
             @include text-styles-config(13, 20, 'SemiBold');
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
 
             @include media-query_('tablet') {
                 @include text-styles-config(14, 22, 'SemiBold');            
@@ -236,6 +246,7 @@
             justify-content: space-around;
             align-items: center;
             box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+            border-radius: 0.188rem;
 
             @include media-query_('tablet') {
                 justify-content: flex-end;
@@ -310,13 +321,13 @@
 
 .footer {
     @include media-query_('mobile'){
-        padding-top: 50rem; 
+        padding-top: 57rem; 
     }
     @include media-query_('tablet'){
-        padding-top: 35rem; 
+        padding-top: 45rem; 
     }
     @include media-query_('desktop'){
-        padding-top: 10rem; 
+        padding-top: 40rem; 
     }
 }
 
