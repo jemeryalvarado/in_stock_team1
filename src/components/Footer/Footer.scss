@@ -12,14 +12,7 @@
     background-color: $LightGrey;
 
     @include media-query_('mobile'){
-        height: 72.5vh;
-    }
-
-    @include media-query_('tablet'){
-        height: 70vh;
-    }
-    @include media-query_('desktop'){
-        height: 75vh;
+        padding-top: 10rem; 
     }
 
     &__copyright{
