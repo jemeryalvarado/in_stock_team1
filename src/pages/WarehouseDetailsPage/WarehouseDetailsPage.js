@@ -7,8 +7,22 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
-
+import "../../components/Footer/Footer.scss";
+import rightArrow from "../../assets/icons/chevron_right-24px.svg";
 const baseUrl = process.env.REACT_APP_BASE_URL
+
+function InventoryStatus({status}){
+  if(status === "In Stock"){
+    return (
+        <p className="inventories__container--stockIn">{status} </p>
+    )
+  }
+  if(status === "Out of Stock"){
+    return (
+        <p className="inventories__container--stockOut">{status} </p>
+    )
+  }
+};
 
 function WarehouseDetailsPage () {
   const [state, setState] = useState([])
@@ -91,15 +105,16 @@ function WarehouseDetailsPage () {
               <div className="inventories__container">
                 <div>
                   <h3 className="inventories__container--headers">INVENTORY ITEM</h3>
-                  <Link>
-                    <p className="inventories__container-text">{inventory.item_name}</p>
+                  <Link className="inventoryLink">
+                    <p className="inventories__container--itemName">{inventory.item_name}</p>
+                    <img className="inventories__container--rightArrow" src ={rightArrow} />
                   </Link>
                   <h3 className="inventories__container--headers">CATEGORY</h3>
                   <p className="inventories__container-text">{inventory.category} </p>
                 </div>
                 <div>
                   <h3 className="inventories__container--headers">STATUS</h3>
-                  <p className="inventories__container-text">{inventory.status} </p>
+                  <InventoryStatus status={ inventory.status }/>
                   <h3 className="inventories__container--headers">QTY</h3>
                   <p className="inventories__container-text">{inventory.quantity} </p>
                 </div>
