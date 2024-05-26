@@ -33,7 +33,7 @@ function WarehouseDetailsPage () {
           <div className="warehouse__title">
             <h1 className="warehouse__title--text">
               <Link to="/warehouses"><img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" /></Link>
-              {state.city}
+              {state.warehouse_name}
             </h1>
             <Link className="warehouse__title--edit" to={`/warehouses/edit/${warehouseId}`}>
               <img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" />
