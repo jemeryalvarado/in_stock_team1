@@ -92,29 +92,30 @@ const AllWarehouses = () => {
               <p className="containerw-text">{warehouse.contact_email} </p>
               </div>
             </section>
-          </div>
-            <section className="containerw-icons">
-              <div>
-                <img src={deleteIcon} alt="delete" onClick={() => openModal(warehouse)}/>
-                <Modal
-                    modalIsOpen = {modalIsOpen}
-                    closeModal = {closeModal}
-                    warehouse_name = {warehouseToDelete.warehouse_name}
-                    id = {warehouseToDelete.id}
-                    deleteWarehouse = {deleteElement}
-                  >
-                    <div className="modal-grid__content-header">
-                      Delete {warehouseToDelete.warehouse_name} warehouse?
-                    </div>
-                    <div className="modal-grid__content-text">
-                      Please confirm that you’d like to delete the {warehouseToDelete.warehouse_name} from the list of warehouses.
-                      You won’t be able to undo this action.
-                    </div>
-                  </Modal>
               </div>
-              <Link to={`/warehouses/edit/${warehouse.id}`} >
-                <img src={editIcon} alt="edit" />
-              </Link>
+                <section className="containerw-icons">
+                  <div>
+                    <img src={deleteIcon} alt="delete" onClick={() => openModal(warehouse)}/>
+                    <Modal
+                      modalIsOpen = {modalIsOpen}
+                      closeModal = {closeModal}
+                      warehouse_name = {warehouseToDelete.warehouse_name}
+                      id = {warehouseToDelete.id}
+                      deleteElement = {deleteElement}
+                      elementType = {'warehouses'}
+                    >
+                      <div className="modal-grid__content-header">
+                        Delete {warehouseToDelete.warehouse_name} warehouse?
+                      </div>
+                      <div className="modal-grid__content-text">
+                        Please confirm that you’d like to delete the {warehouseToDelete.warehouse_name} from the list of warehouses.
+                        You won’t be able to undo this action.
+                      </div>
+                    </Modal>
+                  </div>
+                  <Link to={`/warehouses/edit/${warehouse.id}`} >
+                    <img src={editIcon} alt="edit" />
+                  </Link>
             </section>
           </div>
         </div>
