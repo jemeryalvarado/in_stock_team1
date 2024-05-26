@@ -5,20 +5,45 @@ import { Link } from "react-router-dom";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import fArrow from "../../assets/icons/chevron_right-24px.svg";
+import Modal from "../../components/Modal/Modal";
 
 const AllWarehouses = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
   const [error, setError] = useState();
+  const [warehouseToDelete, setWarehouseToDelete] = useState([]);
+
+  const openModal = (warehouseToDelete) => {
+    setModalIsOpen(true);
+    setWarehouseToDelete(warehouseToDelete);
+  };
+
+  const closeModal = () => {
+      setModalIsOpen(false);
+  };
+
+  // elementType must be either < inventories > or < warehouses > respectively
+  const getElements = async (elementType) => {
+      try {
+          const res = await axios.get(`http://localhost:8080/${elementType}`);
+          setWarehouses(res.data);
+      } catch (error) {
+          console.log(error);
+      }
+  }
+
+  const deleteElement = async (elementType, id) => {
+      try {
+          await axios.delete(`http://localhost:8080/${elementType}/${id}`);
+          getElements(elementType);
+          closeModal();
+      } catch (error) {
+          console.log(error);
+      } 
+  }
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/warehouses")
-      .then((response) => {
-        setWarehouses(response.data);
-      })
-      .catch((err) => {
-        setError(`Error fetching warehouse: ${err.message}`);
-      });
+    getElements('warehouses')
   }, []);
 
   return (
@@ -26,22 +51,22 @@ const AllWarehouses = () => {
     <section className="tsbw">
       <h1 className="tsbw-title">Warehouses</h1>
       <div className="tsbw_sb">
-      <input
-        type="text"
-        placeholder="Search"
-        className="tsbw_sb-searchbox"
-      ></input>
-      <Link className="tsbw-button-link">
-      <button className="tsbw-button"> + Add New Warehouse  </button>
-      </Link>
+        <input
+          type="text"
+          placeholder="Search"
+          className="tsbw_sb-searchbox"
+        >
+        </input>
+        <Link className="tsbw-button-link">
+          <button className="tsbw-button"> + Add New Warehouse  </button>
+        </Link>
       </div>
     </section>
       {warehouses.map((warehouse) => (
         <div  key={warehouse.id} >
-                        <div className="break"></div>
+        <div className="break"></div>
         <div className="master-containerw">
           <div className="containerw">
-            
             <section className="containerw-section" >
               <div className="containerw-sectioncc">
               <h3>WAREHOUSE</h3>
@@ -68,18 +93,31 @@ const AllWarehouses = () => {
               </div>
             </section>
           </div>
-          <section className="containerw-icons">
-            
-            <a href="">
-              <img src={deleteIcon} alt="delete" />
-              </a>
-            <Link to={`/warehouses/edit/${warehouse.id}`} >
-              <img src={editIcon} alt="edit" />
-            </Link>
-          </section>
+            <section className="containerw-icons">
+              <div>
+                <img src={deleteIcon} alt="delete" onClick={() => openModal(warehouse)}/>
+                <Modal
+                    modalIsOpen = {modalIsOpen}
+                    closeModal = {closeModal}
+                    warehouse_name = {warehouseToDelete.warehouse_name}
+                    id = {warehouseToDelete.id}
+                    deleteWarehouse = {deleteElement}
+                  >
+                    <div className="modal-grid__content-header">
+                      Delete {warehouseToDelete.warehouse_name} warehouse?
+                    </div>
+                    <div className="modal-grid__content-text">
+                      Please confirm that you’d like to delete the {warehouseToDelete.warehouse_name} from the list of warehouses.
+                      You won’t be able to undo this action.
+                    </div>
+                  </Modal>
+              </div>
+              <Link to={`/warehouses/edit/${warehouse.id}`} >
+                <img src={editIcon} alt="edit" />
+              </Link>
+            </section>
+          </div>
         </div>
-         </div>
-
       ))}
     </div>
   );
