@@ -9,6 +9,7 @@ import AddWarehouse from "./pages/AddWarehousePage/AddWarehouse";
 import AllWarehouses from "./pages/AllWarehouses/AllWarehouses.js";
 import AllInventories from "./pages/AllInventories/AllInventories.js";
 import "./App.scss";
+import EditInventory from "./components/Main/EditInventory";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         </main>
         <Footer />
       </div>
+
     </Router>
   );
 }

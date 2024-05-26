@@ -4,8 +4,9 @@
 .nav{
     background-color: $Graphite;
     //** activate the following lines once the main page component is added
-    position: relative;
+    // position: relative;
     z-index: 1;
+    position: sticky;
 
     @include media-query_('mobile') {
         display: flex;
