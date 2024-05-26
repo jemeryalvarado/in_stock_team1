@@ -3,7 +3,7 @@
 
 .section{
     background-color: $White;
-    border-radius: 3px;
+    border-radius: 0.188rem;
     position: absolute;
     z-index: 3;
     width: 90vw;
@@ -18,38 +18,38 @@
 
     @include media-query_('tablet') {
         height: 81.5vh;
-        top: 152px;
+        top: 9.5rem;
     }
 
     @include media-query_('desktop') {
-        top: 154px;
+        top: 9.5rem;
     }
 
     &__title {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 28px;
-        font-weight: 600;
-        line-height: 36px;
+        @include text-styles-config(28, 36, 'SemiBold');
         padding-bottom: 1rem;
         border-bottom: $Cloud solid 1px;
 
         @include media-query_('tablet') {
             justify-content: flex-start;
             padding-left: 2rem;
+            @include text-styles-config(32, 40, 'SemiBold');
         }
 
         @include media-query_('desktop') {
             justify-content: flex-start;
             padding-left: 2rem;
+            @include text-styles-config(32, 40, 'SemiBold');
         }
 
         &__img {
-           height: 16px;
-           width: 16px; 
-           top: 4px;
-           bottom: 4px;
+           height: 1rem;
+           width: 1rem; 
+           top: 0.25rem;
+           bottom: 0.23rem;
            padding-right: .5rem;
         }
     }
@@ -78,18 +78,15 @@
         }
         
         &__title {
-            // @include text-styles('SubHeader', true);
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 28px;
+            @include text-styles-config(20, 28, 'SemiBold');
             padding-bottom: 1rem;
             margin: 1rem;
 
             @include media-query_('tablet') {
-                // @include text-styles('SubHeader');
-            }
+                @include text-styles-config(24, 32, 'SemiBold');            }
 
             @include media-query_('desktop'){
+                @include text-styles-config(24, 32, 'SemiBold');
             }
         }
 
@@ -105,34 +102,40 @@
                     display: flex;
                     flex-direction: column;
                     padding-bottom: 1rem;
-                    font-size: 13px;
-                    line-height: 20px;
-                    font-weight: 600;
+                    @include text-styles-config(13, 20, 'SemiBold');
+
+                    @include media-query_('tablet'){
+                        @include text-styles-config(14, 22, 'SemiBold');
+                    }
+
+                    @include media-query_('desktop'){
+                        @include text-styles-config(14, 22, 'SemiBold');
+                    }
 
                     &__input {
-                        border-radius: 20px;
+                        border-radius: 1.25rem;
                         border: solid 1px $Cloud;
-                        height: 36px;
+                        height: 2.25rem;
                         width: 97%;
-                        font-size: 13px;
-                        line-height: 20px;
-                        font-weight: 400;
+                        @include text-styles-config(13, 20, 'SemiBold');
                         margin-top: 0.5rem;
-                        padding-left: 10px;
+                        padding-left: 0.625rem;
                         color: #13182C;
 
                         @include media-query_('tablet') {
-                            font-size: 14px;
-                            line-height: 22px;
-                            color: #13182C;
+                            @include text-styles-config(14, 22, 'SemiBold');
+                        }
+
+                        @include media-query_('desktop') {
+                            @include text-styles-config(14, 22, 'SemiBold');
                         }
 
                     }
 
                     &__text {
-                        border-radius: 20px;
+                        border-radius: 1.25rem;
                         border: solid 1px $Cloud;
-                        height: 120px;
+                        height: 7.5rem;
                         margin-top: 0.5rem;
                     }
                 }
@@ -162,10 +165,16 @@
         }
 
         &__title {
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 28px;
+            @include text-styles-config(20, 28, 'SemiBold');
             padding-bottom: 1rem;
+
+            @include media-query_('tablet') {
+                @include text-styles-config(20, 28, 'SemiBold');
+            }
+
+            @include media-query_('desktop') {
+                @include text-styles-config(20, 28, 'SemiBold');
+            }
         }
 
         &__div {
@@ -173,18 +182,55 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 1rem;
-            font-size: 13px;
+            @include text-styles-config(13, 20, 'SemiBold');
+
+            @include media-query_('tablet') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            } 
+            
+            @include media-query_('desktop') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            } 
         }
 
         &__label {
-            font-size: 13px;
-            line-height: 20px;
-            font-weight: 600;
+            @include text-styles-config(13, 20, 'SemiBold');
             margin-bottom: 0.5rem;
+
+            @include media-query_('tablet') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            } 
+            
+            @include media-query_('desktop') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            }
+
+            &__input {
+                border-radius: 1.25rem;
+                border: solid 1px $Cloud;
+                height: 2.25rem;
+                width: 97%;
+                @include text-styles-config(13, 20, 'SemiBold');
+                margin-top: 0.5rem;
+                padding-left: 0.625rem;
+                color: #13182C;
+
+                @include media-query_('tablet') {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                @include media-query_('desktop') {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
         }
 
         &__buttons {
-            height: 68px;
+            height: 4.25rem;
             background-color: $LightGrey;
             display: flex;
             justify-content: space-around;
@@ -200,36 +246,37 @@
             }
 
             &__cancel {
-                height: 36px;
-                width: 139px;
-                border-radius: 20px;
+                height: 2.25rem;
+                width: 8.688rem;
+                border-radius: 1.25rem;
                 border: solid 1px $Cloud;
                 background-color: $White;
 
                 @include media-query_('tablet') {
-                    width: 61px;
+                    width: 3.813rem;
                 }
 
                 @include media-query_('desktop') {
-                    width: 61px;
+                    width: 3.813rem;
                 }
             }
 
             &__save {
-                height: 36px;
-                width: 139px;
-                border-radius: 20px;
+                height: 2.25rem;
+                width: 8.688rem;
+                border-radius: 1.25rem;
                 border: none;
                 background-color: $InstockIndigo;
                 color: $White;
 
                 @include media-query_('tablet') {
-                    width: 61px;
+                    width: 3.813rem;
                     margin-left: 1rem;
                     margin-right: 1rem;
                 }
+
                 @include media-query_('desktop') {
-                    width: 61px;
+                    width: 3.813rem;
                     margin-left: 1rem;
                     margin-right: 1rem;
                 }
@@ -239,3 +286,25 @@
     }
 
 }
+
+.warehouseForm__errorWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .25rem;
+    position: relative;
+    bottom: .75rem;
+
+    &__errorMessage{
+        color: $Red;
+        position: relative; 
+        @include media-query_('tablet') {
+          @include text-styles('BodySmall');
+        }
+    }
+    
+    &__errorImage{
+        width: 1rem;
+    }
+}
+
