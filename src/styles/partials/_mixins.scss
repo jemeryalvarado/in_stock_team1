@@ -1,0 +1,142 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use './variables' as *;
+
+
+//text style configuration usage example: 
+//@include text-styles-config(28, 36, 'SemiBold');
+//where 28 is desired font size and 36 is desired line height; font families set in App.scss and can be
+//either "SemiBold" or "Regular"
+@mixin text-styles-config($font-size, $line-height, $font-family, $padding-top:0, $padding-bottom:0) {
+    font-size: math.div($font-size, 16) + rem;
+    line-height: math.div($line-height, 16) + rem;
+    font-family: $font-family;
+    padding-top: math.div($padding-top, 16) + rem;
+    padding-bottom: math.div($padding-bottom, 16) + rem;
+}
+
+//Text Styles see InStock Figma 1.Typekit
+//usage example:
+// @include text-styles('PageHeader'); for desktop and tablet
+// @include text-styles('PageHeader', true); for mobile
+// text style can be either:
+// 'PageHeader' 'SubHeader' 'LabelsLinksButtons' 'TableHeader' 'BodyLarge' 'BodyMedium' 'BodySmall'
+@mixin text-styles($mockup-text-style-name, $mobile: false) {
+    @if $mobile {
+        @if $mockup-text-style-name == 'PageHeader' {
+            @include text-styles-config(28, 36, 'SemiBold');
+        } @else if $mockup-text-style-name == 'SubHeader' {
+            @include text-styles-config(20, 28, 'SemiBold');
+        } @else if $mockup-text-style-name == 'LabelsLinksButtons' {
+            @include text-styles-config(13, 20, 'SemiBold');
+        } @else if $mockup-text-style-name == 'TableHeader' {
+            @include text-styles-config(11, 16, 'Regular');
+        } @else if $mockup-text-style-name == 'BodyLarge' {
+            @include text-styles-config(15, 26, 'Regular');
+        } @else if $mockup-text-style-name == 'BodyMedium' {
+            @include text-styles-config(13, 20, 'Regular');
+        } @else if $mockup-text-style-name == 'BodySmall' {
+            @include text-styles-config(11, 16, 'Regular');
+        }
+    } @else {
+        @if $mockup-text-style-name == 'PageHeader' {
+            @include text-styles-config(32, 40, 'SemiBold');
+        } @else if $mockup-text-style-name == 'SubHeader' {
+            @include text-styles-config(24, 32, 'SemiBold');
+        } @else if $mockup-text-style-name == 'LabelsLinksButtons' {
+            @include text-styles-config(14, 22, 'SemiBold');
+        } @else if $mockup-text-style-name == 'TableHeader' {
+            @include text-styles-config(12, 18, 'Regular');
+        } @else if $mockup-text-style-name == 'BodyLarge' {
+            @include text-styles-config(16, 28, 'Regular');
+        } @else if $mockup-text-style-name == 'BodyMedium' {
+            @include text-styles-config(14, 22, 'Regular');
+        } @else if $mockup-text-style-name == 'BodySmall' {
+            @include text-styles-config(12, 18, 'Regular');
+        }
+    }
+}
+
+@mixin search-bar($width,$height,$background-image,$background-repeat,$background-position-x,$background-position-y,$text-indent,$background-color,$border-radius,$border){
+    width: $width;
+    height: $height;
+    background-image:$background-image;
+    background-repeat: $background-repeat;
+    background-position-x:$background-position-x;
+    background-position-y:$background-position-y;
+    text-indent:$text-indent;
+    background-color:$background-color;
+    border-radius: $border-radius;
+    border: $border;
+}
+
+//###
+//Below Mixins for Layout Grid. See InStock Figma 3.Layout Grid. 
+//You can opt not to use display:grid at all, hence You will not need these mixins.
+//###
+
+// returns the lower grid boundary or null if the smallest grid is selected
+@function breakpoint-min($size) {
+    $min: map.get($breakpoints, $size);
+  
+    @return if($min > 0, $min, null);
+}
+    
+// returns the upper grid boundary or null if the largest grid is selected
+@function breakpoint-max($size) {
+    $names: map.keys($columns);
+    $n: list.index($names, $size);
+    $prev: if($n > 1, list.nth($names, $n - 1), null);
+
+    @return if($prev, (breakpoint-min($prev) - 1px), null);
+}
+  
+@mixin media-query_($size) {
+    $min: breakpoint-min($size);
+    $max: breakpoint-max($size);
+  
+    @if $min == null and $max != null {
+      // Mobile
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else if $min != null and $max != null {
+      // Tablet
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $min != null and $max == null {
+      // Desktop
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+}
+  
+@mixin layout-grid($size, $margin, $max-width: null) {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: $margin;
+  
+    @if $max-width {
+        max-width: $max-width;
+    }
+}
+  
+@mixin inner($size, $margin, $gutter, $gutter-show: $gutter) {
+    display: flex;
+    flex-flow: row wrap;
+    margin: math.div(-$gutter, 2);
+  
+    @supports (display: grid) {
+        display: grid;
+        margin: 0;
+        column-gap: $gutter;
+        row-gap: $gutter-show;
+        grid-template-columns: repeat(
+            map.get($columns, $size),
+            minmax(0, 1fr)
+        );
+    }
+}

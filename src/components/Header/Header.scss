@@ -1,0 +1,120 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.nav{
+    background-color: $Graphite;
+    //** activate the following lines once the main page component is added
+    // position: relative;
+    z-index: 1;
+    position: sticky;
+
+    @include media-query_('mobile') {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 200px;
+        gap: 1rem;
+        opacity: 0px;
+    }
+
+    @include media-query_('tablet') {
+        display: flex;
+        flex-direction: 'row';
+        justify-content: space-between;
+        height: 186px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 2rem;
+    }
+
+    @include media-query_('desktop') {
+        display: flex;
+        flex-direction: 'row';
+        justify-content: space-between;
+        height: 186px;
+        padding-left: 8rem;
+        padding-right: 8rem;
+        padding-top: 2rem;
+    }
+
+
+    &__logo--img{
+        @include media-query_('mobile'){
+            width: 8.0369rem;
+            margin-top: 1.5rem;
+        }
+
+        @include media-query_('desktop'){
+            width: 8.0369rem;
+        }
+    }
+
+    &__buttonsContainer{
+        @include media-query_('mobile'){
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__buttonsContainer--child{
+        
+        background-color: $Graphite;
+        border: 1px solid $Graphite;
+        color: $Cloud;
+        border-radius: 1.25rem;
+        cursor: pointer;
+
+        @include media-query_('mobile'){
+            width:9.25rem;
+            height: 2.25rem;
+            border-radius: 1.25rem;
+            margin-top: 1rem;
+            @include text-styles('BodyMedium', true);
+            
+            &:focus{
+                background-color: $InstockBlack;
+                width:9.25rem;
+                height: 2.25rem;
+                border: 1px solid $InstockBlack;
+                border-radius: 1.25rem;
+                color: $White;
+                margin-top: 1rem;
+            }
+        }
+
+        @include media-query_('tablet'){     
+            width: 6.6875rem;    
+            height: 2.375rem;
+            &:focus{
+                background-color: $InstockBlack;
+                border: 1px solid $InstockBlack;
+                border-radius: 1.25rem;
+                color: $White;
+                width: 6.6875rem;    
+                height: 2.375rem;
+                border-radius: 1.25rem;
+            }
+        }
+
+        @include media-query_('desktop'){
+            width: 6.6875rem;    
+            height: 2.375rem;
+            &:focus{
+                background-color: $InstockBlack;
+                border: 1px solid $InstockBlack;
+                border-radius: 1.25rem;
+                color: $White;
+                width: 6.6875rem;    
+                height: 2.375rem;
+                border-radius: 1.25rem;
+            }
+        }
+    }
+}
