@@ -1,0 +1,293 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.formContainer{
+
+    &__header{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        @include media-query_('mobile'){
+            justify-content: space-evenly;
+        }
+        @include media-query_('tablet'){
+            gap: 0.5rem;
+            padding-left: 1rem;
+        }
+        @include media-query_('desktop'){
+            gap: 0.5rem;
+            padding-left: 1rem;
+            height: 10%;
+            padding-top: 1rem;
+        }
+        
+
+       
+    }
+
+    &__header--arrowBack{
+        display: flex;
+    }
+    &__header--title{
+        font-size: 24px;
+        line-height: 2.25rem;
+        font-family: "SemiBold";
+
+        @include media-query_('tablet'){
+            @include text-styles('PageHeader');
+        }
+
+        @include media-query_('desktop'){
+            @include text-styles('PageHeader');
+            margin-block-start: 0;
+            margin-block-end: 0em;
+        }
+
+    }
+    background-color: #FFFFFF;
+    position: absolute;
+    z-index: 3;
+    width: 90%;
+    height: fit-content;
+    top: 25.75rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 0px 2px 5px 0px #13182C1A;
+    border-radius: 3px;
+
+    @include media-query_('tablet'){
+        top: 2.875rem;
+        height: 77vh;
+    }
+    @include media-query_('desktop'){
+        top: -27px;
+        height: 61vh;
+        width: 79%;
+    }
+    
+    
+}
+
+.warehouseForm{
+
+    &__formsWrapper{
+        @include media-query_('mobile'){
+            display: flex;
+            flex-direction: column;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-bottom: 1rem;
+        }
+        @include media-query_('tablet'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-bottom: 1rem;
+        }
+
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__details{
+        display: flex;
+        flex-direction: column;
+        @include media-query_('tablet'){
+            width: 287.5px;
+        }
+
+        @include media-query_('desktop'){
+            width: 429px;
+        }
+       
+    }
+
+    &__contact{
+        display: flex;
+        flex-direction: column;
+        @include media-query_('tablet'){
+            width: 287.5px;
+        }
+
+        @include media-query_('desktop'){
+            width: 429px;
+        }
+    }
+
+    &__labels{
+        padding-bottom: 0.5rem;
+        @include media-query_('mobile'){
+            @include text-styles('LabelsLinksButtons', true);
+        }
+        @include media-query_('tablet'){
+            @include text-styles('LabelsLinksButtons');
+        }  
+        @include media-query_('desktop'){
+            @include text-styles('LabelsLinksButtons');
+        }  
+       
+    }
+
+    &__titles{
+        @include media-query_('mobile'){
+            @include text-styles('SubHeader', true);
+        }
+        @include media-query_('tablet'){
+            @include text-styles('SubHeader');
+        }
+    }
+
+    &__fields{
+        margin-bottom: 1rem;
+        border-radius: 1.25rem;
+        border: 1px solid $Cloud;
+        height: 2rem;
+        text-indent: 0.5rem;
+        @include text-styles('BodySmall', true);
+    }
+    &__fields:focus{
+        outline: 1px solid $InstockIndigo;
+    }
+
+
+    &__buttons{
+        background-color: #F7F8F9;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 68px;
+        width: 100%;
+        box-shadow: 0px 2px 5px 0px #13182C1A;
+        
+        @include media-query_('tablet'){
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            padding-right: 1rem;
+            gap: 10px;
+            width: auto;
+            
+        }
+
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            gap: 10px;
+            width: auto;
+        }
+    }
+    &__cancel{
+        border-radius: 20px;
+        border: 1px solid $Cloud;
+        width: 35vw;
+        height: 33px;
+        background-color:$White;
+        cursor: pointer;
+        @include media-query_('tablet'){
+            width: 72px;
+            height: 38px;
+        }
+        @include media-query_('desktop'){
+            width: 72px;
+            height: 38px;
+        }
+    }
+
+    &__add{
+        border-radius: 20px;
+        border: 1px solid #2E66E5;
+        width: 40vw;
+        height: 33px;
+        background-color: #2E66E5;
+        color: #FFFFFF;
+        cursor: pointer;
+        @include media-query_('tablet'){
+            width: 138px;
+            height: 38px;
+        }
+        @include media-query_('desktop'){
+            width: 138px;
+            height: 38px;
+            margin-right: 2rem;
+        }
+    }
+
+    &__errorWrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .25rem;
+        position: relative;
+        bottom: .75rem;
+    }
+
+    &__errorMessage{
+        color: $Red;
+        position: relative;
+        @include media-query_('mobile') {
+            @include text-styles('BodySmall',true);
+          } 
+        @include media-query_('tablet') {
+          @include text-styles('BodySmall');
+        }
+        @include media-query_('desktop') {
+            @include text-styles('BodySmall');
+          }
+    }
+
+    &__errorImage{
+        width: 16px;
+    }
+
+}
+
+.divider{
+    border-color: #BDC5D5;
+    border-width: 0.05rem;
+    border-style: solid;
+    margin: 0;
+
+    @include media-query_('tablet'){
+        margin: 0px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    @include media-query_('desktop'){
+        margin: 0px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__middle{
+        border-color: $Cloud;
+        border-style: solid;
+        
+        @include media-query_('mobile'){
+            margin-left: -1rem;
+            margin-right: -1rem;
+        };
+        @include media-query_('tablet'){
+            margin-left: -1rem;
+            margin-right: -1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        };
+
+        @include media-query_('desktop'){
+            margin-left: -1rem;
+            margin-right: -1rem;
+            margin-bottom: 0rem;
+            margin-top: 0rem;
+        }
+    }
+}
