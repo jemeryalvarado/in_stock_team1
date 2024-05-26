@@ -27,10 +27,49 @@ function InventoryItemDetailsPage() {
       fetchInventoryDetails();
     }, [inventoryId])
 
-    console.log('state', state)
-
     return(
         <>
+          <div className="inventory">
+            <div className="inventory__title">
+              <h1 className="inventory__title--text">
+                <Link to="/inventories"><img className="inventory__title--text-icon" src={back} alt="'BackBtn'" /></Link>
+                {state.item_name}
+              </h1>
+              <Link className="inventory__title--edit" to="/inventories/edit/:inventoryId">
+                <img className="inventory__title--edit-icon" src={edit} alt="'EditBtn'" />
+                <p className="inventory__title--edit-text">Edit</p>
+              </Link> 
+            </div>
+          <div className="divider"></div>
+            <div className="inventory__details">
+              <div className="inventory__details--description">
+                <h4>ITEM DESCRIPTION:</h4>
+                <p>{state.description}</p>
+              </div>
+              <div className="inventory__details--category">
+                <h4>CATEGORY:</h4>
+                <p>{state.category}</p>
+              </div>
+              <div className="inventory__details--stock">
+                <div className="inventory__details--stock-status">
+                  <h4>Status:</h4>
+                  <p>
+                    {state.status}
+                  </p>
+                </div>
+                <div className="inventory__details--stock-quantity">
+                  <h4>QUANTITY:</h4>
+                  <p>
+                    {state.quantity}
+                  </p>
+                </div>
+              </div> 
+              <div className="inventory__details--warehouse">
+                <h4>WAREHOUSE:</h4>
+                <p>{state.warehouse_name}</p>
+              </div>
+            </div>
+          </div>
         </>
     )
 }
