@@ -5,11 +5,14 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
+import editIcon from "../../assets/icons/edit-24px.svg";
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 function WarehouseDetailsPage () {
   const [state, setState] = useState([])
+  const [inventories, setInventories] = useState([]);
   const { warehouseId } = useParams();
 
   useEffect(() => {
@@ -24,7 +27,20 @@ function WarehouseDetailsPage () {
         window.location = '/warehouses'
       })
     }
+
+    const fetchInventories =() =>{
+      axios.get(`${baseUrl}/warehouses/${warehouseId}/inventories`)
+      .then(response =>{
+        console.log(response.data)
+        setInventories(response.data)
+      })
+      .catch(error =>{
+        console.error(error)
+      })
+    };
+
     fetchWarehouseDetails();
+    fetchInventories();
   }, [warehouseId])
 
   return (
@@ -67,6 +83,39 @@ function WarehouseDetailsPage () {
             </div> 
           </div>
         <div className="divider3"></div>
+        <div className="inventories">
+          {inventories.map((inventory)=>{
+            return(
+              <div key={inventory.id}>
+              <div className="break"></div>
+              <div className="inventories__container">
+                <div>
+                  <h3 className="inventories__container--headers">INVENTORY ITEM</h3>
+                  <Link>
+                    <p className="inventories__container-text">{inventory.item_name}</p>
+                  </Link>
+                  <h3 className="inventories__container--headers">CATEGORY</h3>
+                  <p className="inventories__container-text">{inventory.category} </p>
+                </div>
+                <div>
+                  <h3 className="inventories__container--headers">STATUS</h3>
+                  <p className="inventories__container-text">{inventory.status} </p>
+                  <h3 className="inventories__container--headers">QTY</h3>
+                  <p className="inventories__container-text">{inventory.quantity} </p>
+                </div>
+              </div>
+              <div className="inventories__container-icons">
+                <Link >
+                  <img src={deleteIcon} alt="delete" />
+                </Link>
+                <Link >
+                  <img src={editIcon} alt="edit" />
+                </Link>
+              </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </>
   )

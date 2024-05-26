@@ -220,3 +220,40 @@
         }
     }
 }
+
+.inventories{
+    &__container{
+        @include media-query_("mobile") {
+            color: $InstockBlack;
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            margin: auto;
+            justify-content: start;
+            gap:4rem;
+            @include text-styles("TableHeader", true);
+            padding-top: 1rem;
+            &-icons{
+                display: flex;
+                justify-content: space-between;
+                width: 80%;
+                margin: auto;
+                padding-bottom: 1rem;
+            }
+            
+          }
+    }
+
+    &__container--headers{
+        @include media-query_('mobile'){
+            color:$Slate;
+            @include text-styles("TableHeader", true);
+        }
+    }
+
+    &__container--icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
