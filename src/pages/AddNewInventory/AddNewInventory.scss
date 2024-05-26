@@ -1,0 +1,341 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+
+textarea{
+    resize: none;
+}
+
+.section{
+    background-color: $White;
+    border-radius: 0.188rem;
+    position: absolute;
+    z-index: 3;
+    width: 90vw;
+    height: fit-content;
+    top: 29rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #13182C;
+    box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+
+    @include media-query_('tablet') {
+        top: 8.2rem;
+    }
+
+    @include media-query_('desktop') {
+        top: 8.2rem;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include text-styles-config(28, 36, 'SemiBold');
+        padding-bottom: 1rem;
+        border-bottom: $Cloud solid 1px;
+
+        @include media-query_('tablet') {
+            justify-content: flex-start;
+            padding-left: 2rem;
+            @include text-styles-config(32, 40, 'SemiBold');
+            padding-bottom: 1rem;
+        }
+
+        @include media-query_('desktop') {
+            justify-content: flex-start;
+            padding-left: 2rem;
+            @include text-styles-config(32, 40, 'SemiBold');
+            padding-bottom: 1rem;
+        }
+
+        &__img {
+           height: 1rem;
+           width: 1rem; 
+           top: 0.25rem;
+           bottom: 0.23rem;
+           padding-right: .5rem;
+        }
+    }
+
+    .section__divs {
+        @include media-query_('tablet') {
+            display: flex;
+            justify-content: center;
+        }
+        @include media-query_('desktop') {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+    &__details-section {
+        border-bottom: solid $Cloud 1px;
+       
+        @include media-query_('tablet') {
+            width: 45%;  
+            border-bottom: none;
+        }
+        @include media-query_('desktop') {
+            width: 45%;  
+            border-bottom: none;
+        }
+        
+        &__title {
+            @include text-styles-config(20, 28, 'SemiBold');
+            padding-bottom: 1rem;
+            margin: 1rem;
+
+            @include media-query_('tablet') {
+                @include text-styles-config(24, 32, 'SemiBold');            }
+
+            @include media-query_('desktop'){
+                @include text-styles-config(24, 32, 'SemiBold');
+            }
+        }
+
+        &__div{
+
+            &__form {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+
+
+                &__label {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1rem;
+                    @include text-styles-config(13, 20, 'SemiBold');
+
+                    @include media-query_('tablet'){
+                        @include text-styles-config(14, 22, 'SemiBold');
+                    }
+
+                    @include media-query_('desktop'){
+                        @include text-styles-config(14, 22, 'SemiBold');
+                    }
+
+                    &__input {
+                        border-radius: 1.25rem;
+                        border: solid 1px $Cloud;
+                        height: 2.25rem;
+                        width: 97%;
+                        @include text-styles('BodyMedium');
+                        margin-top: 0.5rem;
+                        padding-left: 0.625rem;
+                        color: #13182C;
+
+                        @include media-query_('mobile') {
+                            @include text-styles('BodyMedium', true);
+                        }
+
+                        @include media-query_('tablet') {
+                            @include text-styles-config(14, 22, 'SemiBold');
+                        }
+
+                        @include media-query_('desktop') {
+                            @include text-styles-config(14, 22, 'SemiBold');
+                        }
+
+                    }
+
+                    &__text {
+                        border-radius: 1.25rem;
+                        border: solid 1px $Cloud;
+                        height: 7.5rem;
+                        margin-top: 0.5rem;
+                        @include text-styles('BodyMedium');
+                        padding: 0.625rem;
+                        font-family: 'SemiBold';
+                    }
+                }
+            }
+            
+        }
+    }
+
+    &__availability-section{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        @include media-query_('tablet') {
+            width: 45%;  
+            border-left: solid $Cloud 1px;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @include media-query_('desktop') {
+            width: 45%;  
+            border-bottom: none;
+            border-left: solid $Cloud 1px;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        &__title {
+            @include text-styles-config(20, 28, 'SemiBold');
+            padding-bottom: 1rem;
+
+            @include media-query_('tablet') {
+                @include text-styles-config(20, 28, 'SemiBold');
+            }
+
+            @include media-query_('desktop') {
+                @include text-styles-config(20, 28, 'SemiBold');
+            }
+        }
+
+        &__div {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            @include text-styles-config(13, 20, 'SemiBold');
+
+            @include media-query_('tablet') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            } 
+            
+            @include media-query_('desktop') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            } 
+        }
+
+        &__label {
+            @include text-styles-config(13, 20, 'SemiBold');
+            margin-bottom: 1rem;
+
+            @include media-query_('tablet') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            } 
+            
+            @include media-query_('desktop') {
+                @include text-styles-config(14, 22, 'SemiBold');            
+            }
+
+            &__input {
+                border-radius: 1.25rem;
+                border: solid 1px $Cloud;
+                height: 2.25rem;
+                width: 97%;
+                @include text-styles-config(13, 20, 'SemiBold');
+                margin-top: 0.5rem;
+                padding-left: 0.625rem;
+                color: #13182C;
+
+                @include media-query_('tablet') {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                @include media-query_('desktop') {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        &__buttons {
+            height: 4.25rem;
+            background-color: $LightGrey;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
+            border-radius: 0.188rem;
+
+            @include media-query_('tablet') {
+                justify-content: flex-end;
+            }
+
+            @include media-query_('desktop') {
+                justify-content: flex-end;
+            }
+
+            &__cancel {
+                height: 2.25rem;
+                width: 8.688rem;
+                border-radius: 1.25rem;
+                border: solid 1px $Cloud;
+                background-color: $White;
+
+                @include media-query_('tablet') {
+                    width: 3.813rem;
+                }
+
+                @include media-query_('desktop') {
+                    width: 3.813rem;
+                }
+            }
+
+            &__save {
+                border-radius: 20px;
+                border: 1px solid #2E66E5;
+                width: 40vw;
+                height: 33px;
+                background-color: #2E66E5;
+                color: #FFFFFF;
+                cursor: pointer;
+                @include media-query_('tablet'){
+                    width: 98px;
+                    height: 38px;
+                }
+                @include media-query_('desktop'){
+                    width: 98px;
+                    height: 38px;
+                    margin-right: 2rem;
+                }
+            }
+        }
+        
+    }
+
+}
+
+.warehouseForm__errorWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .25rem;
+    position: relative;
+    bottom: 0rem;
+
+    &__errorMessage{
+        color: $Red;
+        position: relative;
+        @include media-query_('mobile') {
+            @include text-styles('BodySmall',true);
+          } 
+        @include media-query_('tablet') {
+          @include text-styles('BodySmall');
+        }
+        @include media-query_('desktop') {
+            @include text-styles('BodySmall');
+        }
+    }
+    
+    &__errorImage{
+        width: 1rem;
+    }
+}
+
+.footer {
+    @include media-query_('mobile'){
+        padding-top: 57rem; 
+    }
+    @include media-query_('tablet'){
+        padding-top: 45rem; 
+    }
+    @include media-query_('desktop'){
+        padding-top: 40rem; 
+    }
+}
+

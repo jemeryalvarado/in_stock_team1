@@ -5,16 +5,6 @@ import { useState } from "react";
 
 function WarehousesPage(){
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-
-    const openModal = () => {
-        setModalIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setModalIsOpen(false);
-    };
-
     return(
         <div className="whitebox">
           <Link to="/addwarehouses">

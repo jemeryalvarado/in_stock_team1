@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './Modal.scss';
 import closeIcon from '../../assets/icons/close-24px.svg'
 
-const Modal = ({ modalIsOpen, closeModal, warehouse_name, id, children, deleteWarehouse }) => {
+const Modal = ({ modalIsOpen, closeModal, id, children, deleteElement, ...props }) => {
 
   if (!modalIsOpen) {
     return null;
   }
 
   const deleteHandler = () => {
-    deleteWarehouse('warehouses', id);
+    deleteElement(props.elementType, id);
   }
 
   return (

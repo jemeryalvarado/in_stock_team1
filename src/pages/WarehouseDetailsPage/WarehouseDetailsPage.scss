@@ -48,8 +48,8 @@
     @include media-query_('desktop'){
         width: 80vw;
     }
-    height: 70vh;
-    top: 3.75rem;
+    height: fit-content;
+    top: 77.75rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -220,3 +220,79 @@
         }
     }
 }
+
+.inventories{
+    &__container{
+        @include media-query_("mobile") {
+            color: $InstockBlack;
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            margin: auto;
+            justify-content: start;
+            gap:4rem;
+            @include text-styles("TableHeader", true);
+            padding-top: 1rem;
+            &-icons{
+                display: flex;
+                justify-content: space-between;
+                width: 80%;
+                margin: auto;
+                padding-bottom: 1rem;
+            }
+            
+          }
+    }
+
+    &__container--itemName{
+        color:$InstockIndigo;
+        text-decoration: none;
+        @include media-query_('mobile'){
+            @include text-styles("LabelsLinksButtons", true);
+        }
+    }
+
+    &__container--headers{
+        @include media-query_('mobile'){
+            color:$Slate;
+            @include text-styles("TableHeader", true);
+        }
+    }
+
+    &__container--icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__container--stockIn{
+        background: rgba(21, 132, 99, 0.07);
+        color: $Green;
+        border-radius: 20px;
+        padding: 4px 8px 4px 8px;
+        font-weight: bold;
+
+    }
+    
+    &__container--stockOut{
+        background-color: rgba(201, 69, 21, 0.07);
+        color: $Red;
+        border-radius: 20px;
+        padding: 4px 8px 4px 8px;
+        font-weight: bold;
+    }
+    
+}
+
+.Footer{
+
+    @include media-query_('mobile'){
+        padding-top: 99rem; 
+    }
+}
+
+.inventoryLink{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
