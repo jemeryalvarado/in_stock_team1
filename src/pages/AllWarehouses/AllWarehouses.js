@@ -6,6 +6,7 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import fArrow from "../../assets/icons/chevron_right-24px.svg";
 import Modal from "../../components/Modal/Modal";
+import scroll from "../../assets/icons/sort-24px.svg"
 
 const AllWarehouses = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -57,11 +58,35 @@ const AllWarehouses = () => {
           className="tsbw_sb-searchbox"
         >
         </input>
-        <Link className="tsbw-button-link">
+        <Link to= {"/addwarehouses"}className="tsbw-button-link">
           <button className="tsbw-button"> + Add New Warehouse  </button>
         </Link>
       </div>
+      
     </section>
+    <div className="labels">
+        <div  className="labels-title" id="labels-padding1">
+        <h5>WAREHOUSE</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding2">
+        <h5>ADDRESS</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding3">
+        <h5>CONTACT NAME</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding4">
+        <h5>CONTACT INFORMATION</h5>
+        <img src={scroll} alt="" />
+        </div>
+        <div className="labels-title" id="labels-padding5">
+        <h5>ACTION</h5>
+        
+        </div>
+        
+    </div>
       {warehouses.map((warehouse) => (
         <div  key={warehouse.id} >
         <div className="break"></div>
@@ -71,7 +96,7 @@ const AllWarehouses = () => {
               <div className="containerw-sectioncc">
               <h3>WAREHOUSE</h3>
               <Link to={`/warehouses/details/${warehouse.id}`} className="name-chevron">
-                <p className="containerw-text">{warehouse.warehouse_name}</p>
+                <h4 className="containerw-text">{warehouse.warehouse_name}</h4>
                 <img src={fArrow} alt="arrow" />
               </Link>
               </div>
