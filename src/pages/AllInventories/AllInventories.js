@@ -116,7 +116,7 @@ const AllInventories = () => {
                   </div>
                 </Modal>
               </div>
-            <Link >
+            <Link to={`/inventories/edit/${inventory.id}`}>
               <img src={editIcon} alt="edit" />
             </Link>
           </section>
