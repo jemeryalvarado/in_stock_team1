@@ -37,7 +37,7 @@ const AllWarehouses = () => {
       </div>
     </section>
       {warehouses.map((warehouse) => (
-        <div key={warehouse.id} >
+        <div className="box" key={warehouse.id} >
                         <div className="break"></div>
         <div className="master-containerw">
           <div className="containerw">

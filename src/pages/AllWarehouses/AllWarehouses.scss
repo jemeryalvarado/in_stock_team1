@@ -319,6 +319,8 @@ h3 {
 .master-containerw {
   @include media-query_("mobile") {
     width: 100%;
+   
+  
   }
   @include media-query_("tablet") {
 display: flex;  
@@ -330,4 +332,7 @@ flex-direction: row;
   }
 
 
+}
+.box{
+  
 }
