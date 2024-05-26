@@ -9,6 +9,7 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import "../../components/Footer/Footer.scss";
 import rightArrow from "../../assets/icons/chevron_right-24px.svg";
+import Modal from "../../components/Modal/Modal";
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 function InventoryStatus({status}){
@@ -30,29 +31,51 @@ function WarehouseDetailsPage () {
   const { warehouseId } = useParams();
   const { inventoryId } = useParams();
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [inventoryToDelete, setInventoryToDelete] = useState([]);
+
+  const openModal = (inventoryToDelete) => {
+      setModalIsOpen(true);
+      setInventoryToDelete(inventoryToDelete);
+  };
+
+  const closeModal = () => {
+      setModalIsOpen(false);
+  };
+
+  const fetchWarehouseDetails = () => {
+    axios.get(`${baseUrl}/warehouses/${warehouseId}`)
+    .then(response => {
+      setState(response.data)
+    })
+    .catch(error => {
+      console.error(error)
+      alert(`Warehouse ${warehouseId} does not exist`)
+      window.location = '/warehouses'
+    })
+  }
+
+  const fetchInventories =() =>{
+    axios.get(`${baseUrl}/warehouses/${warehouseId}/inventories`)
+    .then(response =>{
+      setInventories(response.data)
+    })
+    .catch(error =>{
+      console.error(error)
+    })
+  };
+
+  const deleteElement = async (elementType, id) => {
+    try {
+        await axios.delete(`http://localhost:8080/${elementType}/${id}`);
+        fetchInventories()
+        closeModal();
+    } catch (error) {
+        console.log(error);
+    } 
+  }
+
   useEffect(() => {
-    const fetchWarehouseDetails = () => {
-      axios.get(`${baseUrl}/warehouses/${warehouseId}`)
-      .then(response => {
-        setState(response.data)
-      })
-      .catch(error => {
-        console.error(error)
-        alert(`Warehouse ${warehouseId} does not exist`)
-        window.location = '/warehouses'
-      })
-    }
-
-    const fetchInventories =() =>{
-      axios.get(`${baseUrl}/warehouses/${warehouseId}/inventories`)
-      .then(response =>{
-        setInventories(response.data)
-      })
-      .catch(error =>{
-        console.error(error)
-      })
-    };
-
     fetchWarehouseDetails();
     fetchInventories();
   }, [warehouseId])
@@ -63,7 +86,7 @@ function WarehouseDetailsPage () {
           <div className="warehouse__title">
             <h1 className="warehouse__title--text">
               <Link to="/warehouses"><img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" /></Link>
-              {state.city}
+              {state.warehouse_name}
             </h1>
             <Link className="warehouse__title--edit" to={`/warehouses/edit/${warehouseId}`}>
               <img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" />
@@ -120,9 +143,25 @@ function WarehouseDetailsPage () {
                 </div>
           
               <div className="inventories__container-icons">
-                <Link >
-                  <img src={deleteIcon} alt="delete" />
-                </Link>
+                <div>
+                  <img src={deleteIcon} alt="delete" onClick={() => openModal(inventory)}/>
+                  <Modal
+                    modalIsOpen = {modalIsOpen}
+                    closeModal = {closeModal}
+                    item_name = {inventoryToDelete.item_name}
+                    id = {inventoryToDelete.id}
+                    deleteElement = {deleteElement}
+                    elementType = {'inventories'}
+                  >
+                    <div className="modal-grid__content-header">
+                      Delete {inventoryToDelete.item_name} inventory item??
+                    </div>
+                    <div className="modal-grid__content-text">
+                      Please confirm that you’d like to delete {inventoryToDelete.item_name} from the inventory list.
+                      You won’t be able to undo this action.
+                    </div>
+                  </Modal>
+                </div>
                 <Link to= {`/inventories/edit/${inventory.id}`} >
                   <img src={editIcon} alt="edit" />
                 </Link>
