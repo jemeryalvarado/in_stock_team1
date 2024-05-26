@@ -1,14 +1,15 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+
 .section{
     background-color: $White;
     border-radius: 0.188rem;
     position: absolute;
     z-index: 3;
     width: 90vw;
-    height: 82vh;
-    top: 10rem;
+    height: fit-content;
+    top: 30rem;
     bottom: 0;
     left: 0;
     right: 0;
@@ -17,12 +18,11 @@
     box-shadow: 0 2px 5px rgba(19, 24, 44, 0.1);
 
     @include media-query_('tablet') {
-        height: 81.5vh;
-        top: 9.5rem;
+        top: 11.8rem;
     }
 
     @include media-query_('desktop') {
-        top: 9.5rem;
+        top: 11.8rem;
     }
 
     &__title {
@@ -305,6 +305,18 @@
     
     &__errorImage{
         width: 1rem;
+    }
+}
+
+.footer {
+    @include media-query_('mobile'){
+        padding-top: 50rem; 
+    }
+    @include media-query_('tablet'){
+        padding-top: 35rem; 
+    }
+    @include media-query_('desktop'){
+        padding-top: 10rem; 
     }
 }
 
