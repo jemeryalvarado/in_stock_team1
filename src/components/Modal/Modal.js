@@ -1,30 +1,36 @@
 import React, { useState } from 'react';
 import './Modal.scss';
+import closeIcon from '../../assets/icons/close-24px.svg'
 
-const Modal = ({ isOpen, onClose, warehouse_name, id }) => {
-  if (!isOpen) {
+const Modal = ({ modalIsOpen, closeModal, warehouse_name, id, children, deleteWarehouse }) => {
+
+  if (!modalIsOpen) {
     return null;
   }
 
+  const deleteHandler = () => {
+    deleteWarehouse('warehouses', id);
+  }
+
   return (
-    <div className="modal" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
-        <span>
-          Delete {warehouse_name} warehouse?
-        </span>
-        <span>
-          Please confirm that you’d like to delete the {warehouse_name} from the list of warehouses.
-          You won’t be able to undo this action.
-        </span>
-        <button>
-          Cancel
-        </button>
-        <button>
-          Delete
-        </button>
+    <div className="modal" onClick={closeModal}>
+      <div className='modal-grid'>
+        <div className="modal-grid__content" onClick={(e) => e.stopPropagation()}>
+          <div className='modal-grid__content-wrapper'>
+            <div className="modal-grid__content-close" onClick={closeModal}>
+              <img src={closeIcon} alt='close'/>
+            </div>
+            {children}
+          </div>
+          <div className='modal-grid__button'>
+            <button className='modal-grid__button-cancel' onClick={closeModal}>
+              Cancel
+            </button>
+            <button className='modal-grid__button-delete' onClick={deleteHandler}>
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

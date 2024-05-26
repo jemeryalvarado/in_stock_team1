@@ -17,9 +17,6 @@ function WarehousesPage(){
 
     return(
         <div className="whitebox">
-            <button onClick={openModal}>Modal</button>
-            <Modal isOpen={modalIsOpen} onClose={closeModal} warehouse_name = {"Washington"} />
-
           <Link to="/addwarehouses">
             <button>Add Warehouse</button>
           </Link> 
