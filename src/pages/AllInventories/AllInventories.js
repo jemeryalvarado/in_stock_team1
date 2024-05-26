@@ -6,21 +6,46 @@ import { v4 as uuidv4 } from "uuid";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import fArrow from "../../assets/icons/chevron_right-24px.svg";
+import Modal from "../../components/Modal/Modal";
 
 
 const AllInventories = () => {
   const [inventories, setInventories] = useState([]);
-  const [error, setError] = useState();
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [inventoryToDelete, setInventoryToDelete] = useState([]);
+
+  const openModal = (inventoryToDelete) => {
+      setModalIsOpen(true);
+      setInventoryToDelete(inventoryToDelete);
+  };
+
+  const closeModal = () => {
+      setModalIsOpen(false);
+  };
+  
+  // elementType must be either < inventories > or < warehouses >
+  const getElements = async (elementType) => {
+      try {
+          const res = await axios.get(`http://localhost:8080/${elementType}`);
+          setInventories(res.data);
+      } catch (error) {
+          console.log(error);
+      }
+  }
+
+  const deleteElement = async (elementType, id) => {
+      try {
+          await axios.delete(`http://localhost:8080/${elementType}/${id}`);
+          getElements(elementType);
+          closeModal();
+      } catch (error) {
+          console.log(error);
+      } 
+  }
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/inventories")
-      .then((response) => {
-        setInventories(response.data);
-      })
-      .catch((err) => {
-        setError(`Error fetching inventory: ${err.message}`);
-      });
+    getElements('inventories');
   }, []);
 
   return (
@@ -72,9 +97,25 @@ const AllInventories = () => {
             </section>
           </div>
           <section className="container-icons">
-            <Link >
-              <img src={deleteIcon} alt="delete" />
-            </Link>
+            <div>
+                <img src={deleteIcon} alt="delete" onClick={() => openModal(inventory)}/>
+                <Modal
+                  modalIsOpen = {modalIsOpen}
+                  closeModal = {closeModal}
+                  item_name = {inventoryToDelete.item_name}
+                  id = {inventoryToDelete.id}
+                  deleteElement = {deleteElement}
+                  elementType = {'inventories'}
+                >
+                  <div className="modal-grid__content-header">
+                    Delete {inventoryToDelete.item_name} inventory item??
+                  </div>
+                  <div className="modal-grid__content-text">
+                    Please confirm that you’d like to delete {inventoryToDelete.item_name} from the inventory list.
+                    You won’t be able to undo this action.
+                  </div>
+                </Modal>
+              </div>
             <Link >
               <img src={editIcon} alt="edit" />
             </Link>
