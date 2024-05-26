@@ -7,6 +7,7 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsP
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 import AddWarehouse from "./pages/AddWarehousePage/AddWarehouse";
 import "./App.scss";
+import EditInventory from "./components/Main/EditInventory";
 
 function App() {
   return (

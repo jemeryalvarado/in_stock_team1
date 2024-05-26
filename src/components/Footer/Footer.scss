@@ -3,14 +3,13 @@
 
 
 
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: end;
     color:$Slate;
     background-color: $LightGrey;
-    height: 100vh;
 
     @include media-query_('mobile'){
         padding-top: 10rem; 
