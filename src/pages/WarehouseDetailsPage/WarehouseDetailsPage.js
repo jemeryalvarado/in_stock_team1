@@ -35,7 +35,7 @@ function WarehouseDetailsPage () {
               <Link to="/warehouses"><img className="warehouse__title--text-icon" src={back} alt="'BackBtn'" /></Link>
               {state.city}
             </h1>
-            <Link className="warehouse__title--edit" to="/warehouses/edit/:warehouseId">
+            <Link className="warehouse__title--edit" to={`/warehouses/edit/${warehouseId}`}>
               <img className="warehouse__title--edit-icon" src={edit} alt="'EditBtn'" />
               <p className="warehouse__title--edit-text">Edit</p>
             </Link> 
@@ -44,7 +44,7 @@ function WarehouseDetailsPage () {
           <div className="warehouse__details">
             <div className="warehouse__details--address">
               <h4>WAREHOUSE ADDRESS:</h4>
-              <p>{state.address}<br/>{state.city},{state.country}</p>
+              <p>{state.address}<br/>{state.city}, {state.country}</p>
             </div>
         <div className="divider2"></div>    
             <div className="warehouse__details--contact">
