@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./WarehousesPage.scss";
-import AllWarehouses from "../../components/AllWarehouses/AllWarehouses";
+import AllWarehouses from "../AllWarehouses/AllWarehouses";
 import Modal from "../../components/Modal/Modal";
 import { useState } from "react";
 

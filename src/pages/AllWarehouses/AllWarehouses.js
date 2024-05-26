@@ -60,7 +60,7 @@ const AllWarehouses = () => {
               <h3>CONTACT NAME</h3>
               <p className="containerw-text">{warehouse.contact_name} </p> 
               </div>
-              <div className="containerw-sectionpe">
+              <div className="containerw-sectioncc">
               <h3>CONTACT INFORMATION</h3>
               <p className="containerw-text">{warehouse.contact_phone} </p>
 
