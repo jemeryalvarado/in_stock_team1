@@ -19,6 +19,15 @@ function ShowError({errorMessage, fieldInvalid}){
     return null;
 };
 
+const inventoryObject = {
+    warehouse_id: '',
+    item_name: '',
+    description: '',
+    category: '',
+    status: '',
+    quantity: ''
+}
+
 function EditInventory({ match }) {
     const { inventoryId: inventoryId  } = useParams(); // to get the inventory id from the params route
     const navigate =  useNavigate();
@@ -26,11 +35,11 @@ function EditInventory({ match }) {
     const [itemName, setItemName] = useState('');
     const [itemDescription, setItemDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [stockStatus, setStockStatus] = useState('inStock');
+    const [stockStatus, setStockStatus] = useState('');
     const [warehouse, setWarehouse] = useState('');
     const [quantity, setQuantity] = useState('');
     const [fieldStatus, setFieldStatus]= useState({});
-    const [editInventory, setEditInventory]= useState({});
+    const [editInventory, setEditInventory]= useState(inventoryObject);
 
     console.log(editInventory);
 
@@ -39,13 +48,13 @@ function EditInventory({ match }) {
         let fieldsValid = true;
     
         for (const [key,value] of Object.entries(editInventory)){
-            if(!value && key !== 'quantity') {
+            if(!value) {
                 fieldsValid = false;
                 fieldErrors[key] = "This field is required";
             }
         }
 
-        if (stockStatus === 'inStock' && !quantity) {
+        if (stockStatus === 'In Stock' && !quantity) {
             fieldsValid = false;
             fieldErrors['quantity'] = "This field is required";
         }
@@ -122,7 +131,7 @@ function EditInventory({ match }) {
                             }}>
                             <option value="" disabled>Select category</option>
                             <option value="electronics">Electronics</option>
-                            <option value="furniture">Gear</option>
+                            <option value="gear">Gear</option>
                             <option value="apparel">Apparel</option>
                             <option value="accessories">Accessories</option>
                             <option value="health">Health</option>
@@ -196,13 +205,13 @@ function EditInventory({ match }) {
                         <option value="7">Miami</option>
                         <option value="8">Boston</option>
                     </select>
-                    <ShowError fieldInvalid={fieldStatus.warehouse} errorMessage={fieldStatus.warehouse}/>
+                    <ShowError fieldInvalid={fieldStatus.warehouse_id} errorMessage={fieldStatus.warehouse_id}/>
                 </label>
             </div>
             </section>
             <div className="section__availability-section__buttons">
                 <button className="section__availability-section__buttons__cancel" type="button" onClick={() => navigate(-1)}>Cancel</button>
-                <button className="section__availability-section__buttons__save" type="button" onClick={handleSubmit}>Save</button>
+                <button className="section__availability-section__buttons__save" type="button" onClick={handleSubmit}> + Add Item</button>
             </div>
             
         </section>

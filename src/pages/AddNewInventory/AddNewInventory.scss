@@ -2,6 +2,10 @@
 @use '../../styles/partials/variables' as *;
 
 
+textarea{
+    resize: none;
+}
+
 .section{
     background-color: $White;
     border-radius: 0.188rem;
@@ -273,23 +277,21 @@
             }
 
             &__save {
-                height: 2.25rem;
-                width: 8.688rem;
-                border-radius: 1.25rem;
-                border: none;
-                background-color: $InstockIndigo;
-                color: $White;
-
-                @include media-query_('tablet') {
-                    width: 3.813rem;
-                    margin-left: 1rem;
-                    margin-right: 1rem;
+                border-radius: 20px;
+                border: 1px solid #2E66E5;
+                width: 40vw;
+                height: 33px;
+                background-color: #2E66E5;
+                color: #FFFFFF;
+                cursor: pointer;
+                @include media-query_('tablet'){
+                    width: 98px;
+                    height: 38px;
                 }
-
-                @include media-query_('desktop') {
-                    width: 3.813rem;
-                    margin-left: 1rem;
-                    margin-right: 1rem;
+                @include media-query_('desktop'){
+                    width: 98px;
+                    height: 38px;
+                    margin-right: 2rem;
                 }
             }
         }
@@ -304,13 +306,19 @@
     align-items: center;
     gap: .25rem;
     position: relative;
-    bottom: .75rem;
+    bottom: 0rem;
 
     &__errorMessage{
         color: $Red;
-        position: relative; 
+        position: relative;
+        @include media-query_('mobile') {
+            @include text-styles('BodySmall',true);
+          } 
         @include media-query_('tablet') {
           @include text-styles('BodySmall');
+        }
+        @include media-query_('desktop') {
+            @include text-styles('BodySmall');
         }
     }
     
