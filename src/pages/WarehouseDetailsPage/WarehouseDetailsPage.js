@@ -45,7 +45,7 @@ function WarehouseDetailsPage () {
     const fetchInventories =() =>{
       axios.get(`${baseUrl}/warehouses/${warehouseId}/inventories`)
       .then(response =>{
-        console.log(response.data)
+        // console.log(response.data)
         setInventories(response.data)
       })
       .catch(error =>{
