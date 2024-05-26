@@ -9,7 +9,8 @@
         width: 100%;
         flex-direction: row;
         @include media-query_('mobile'){
-            justify-content: space-evenly;
+            justify-content: flex-start;
+            margin-left: 1rem;
         }
         @include media-query_('tablet'){
             gap: 0.5rem;
