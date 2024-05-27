@@ -294,7 +294,7 @@ justify-content: end
     &-sectionpe{
       display: flex;
       flex-direction: column;
-      align-items: start;
+      align-items: center;
       width: 15rem;
       text-align: center;
     }
@@ -353,7 +353,7 @@ flex-direction: row;
     right: 0;
     margin: auto;
 }
-.labels {
+.ilabels {
     @include media-query_("mobile") {
       display: none;
     }
@@ -392,7 +392,7 @@ flex-direction: row;
       }
     }
   }
-  #labels-padding1{
+  #labels-padding1i{
     @include media-query_("tablet") {
      margin-left: 2.5rem;
       
@@ -402,29 +402,49 @@ flex-direction: row;
        
      }
   }
-  #labels-padding2{
+  #labels-padding2i{
     @include media-query_("tablet") {
-     padding-left: 1.5rem;
+     padding-right: .25rem;
       
     }
     @include media-query_("desktop") {
-      margin-left: 1rem;
+      margin-left: 8rem;
        
      }
   }
-  #labels-padding3{
+  #labels-padding3i{
     @include media-query_("tablet") {
-     padding-left: 2.5rem;
+     padding-left: 2rem;
       
     }
     @include media-query_("desktop") {
-      margin-left: 12rem;
+      margin-left: 8rem;
        
      }
   }
-  #labels-padding5{
+  #labels-padding4i{
     @include media-query_("tablet") {
-      padding-left: 1rem;
+     padding-left: 0;
+      
+    }
+    @include media-query_("desktop") {
+      margin-left: 3rem;
+       
+     }
+  }
+  #labels-padding5i{
+    @include media-query_("tablet") {
+      padding-righ: 1rem;
+       
+     }
+     @include media-query_("desktop") {
+      margin-right: 0.5rem;
+       
+     }
+  }
+  #labels-padding6i{
+    @include media-query_("tablet") {
+      padding-righ: 1rem;
        
      }
      @include media-query_("desktop") {
@@ -448,4 +468,18 @@ flex-direction: row;
     border-radius: 20px;
     padding: 4px 8px 4px 8px;
     font-weight: bold;
+}
+
+.box{
+    background-color: #FFFFFF;
+    position: relative;
+    z-index: 4;
+    width: 90vw;
+    top: -5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+
 }
