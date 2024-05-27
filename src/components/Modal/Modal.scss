@@ -34,6 +34,7 @@
     }
 
     &-grid{
+      z-index: 99;
       @each $size in map.keys($columns) {
         @include media-query_($size) {
             width: map.get($default-content-width, $size);

@@ -57,7 +57,7 @@ const AllWarehouses = () => {
           className="tsbw_sb-searchbox"
         >
         </input>
-        <Link className="tsbw-button-link">
+        <Link to="/addwarehouses" className="tsbw-button-link">
           <button className="tsbw-button"> + Add New Warehouse  </button>
         </Link>
       </div>
