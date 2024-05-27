@@ -48,7 +48,7 @@ const AllWarehouses = () => {
   }, []);
 
   return (
-    <div className="box" >
+    <div className="boxw" >
     <section className="tsbw">
       <h1 className="tsbw-title">Warehouses</h1>
       <div className="tsbw_sb">
