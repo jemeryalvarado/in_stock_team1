@@ -1,10 +1,9 @@
-import "../../components/Main/EditInventory.scss"
+import "../AddNewInventory/AddNewInventory.scss";
 import arrowBack from '../../assets/icons/arrow_back-24px.svg'
 import error_icon from "../../assets/icons/error-24px.svg";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
-import { useParams, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 function ShowError({errorMessage, fieldInvalid}){
     if (fieldInvalid){
@@ -20,6 +19,15 @@ function ShowError({errorMessage, fieldInvalid}){
     return null;
 };
 
+const inventoryObject = {
+    warehouse_id: '',
+    item_name: '',
+    description: '',
+    category: '',
+    status: '',
+    quantity: ''
+}
+
 function EditInventory({ match }) {
     const { inventoryId: inventoryId  } = useParams(); // to get the inventory id from the params route
     const navigate =  useNavigate();
@@ -27,30 +35,11 @@ function EditInventory({ match }) {
     const [itemName, setItemName] = useState('');
     const [itemDescription, setItemDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [stockStatus, setStockStatus] = useState('inStock');
+    const [stockStatus, setStockStatus] = useState('');
     const [warehouse, setWarehouse] = useState('');
     const [quantity, setQuantity] = useState('');
     const [fieldStatus, setFieldStatus]= useState({});
-    const [editInventory, setEditInventory]= useState({});
-
-    useEffect(() => {
-        const fetchInventory = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8080/inventories/${inventoryId}`);
-                const inventory = response.data;
-                setItemName(inventory.item_name);
-                setItemDescription(inventory.description);
-                setCategory(inventory.category);
-                setStockStatus(inventory.status);
-                setWarehouse(inventory.warehouse_name);
-                setQuantity(inventory.quantity);
-                setEditInventory(inventory);
-            } catch (error) {
-                console.error('Error fetching inventory:', error);
-            }
-        };
-        fetchInventory();
-    }, [inventoryId]);
+    const [editInventory, setEditInventory]= useState(inventoryObject);
 
     console.log(editInventory);
 
@@ -59,13 +48,13 @@ function EditInventory({ match }) {
         let fieldsValid = true;
     
         for (const [key,value] of Object.entries(editInventory)){
-            if(!value && key !== 'quantity') {
+            if(!value) {
                 fieldsValid = false;
                 fieldErrors[key] = "This field is required";
             }
         }
 
-        if (stockStatus === 'inStock' && !quantity) {
+        if (stockStatus === 'In Stock' && !quantity) {
             fieldsValid = false;
             fieldErrors['quantity'] = "This field is required";
         }
@@ -83,7 +72,7 @@ function EditInventory({ match }) {
         }
 
         try {
-          const response = await axios.put(`http://localhost:8080/inventories/${inventoryId}`, {
+          const response = await axios.post(`http://localhost:8080/inventories`, {
             warehouse_id: warehouse,
             item_name: itemName,
             description: itemDescription,
@@ -92,6 +81,7 @@ function EditInventory({ match }) {
             quantity: stockStatus === 'In Stock' ? parseInt(quantity, 10) : 0
             });
           console.log('Update Successful:', response.data);
+          navigate('/inventories');
         } catch (error) {
             console.error('Error updating inventory:', error);
         }
@@ -142,9 +132,8 @@ function EditInventory({ match }) {
                                 setEditInventory({ ...editInventory, category: e.target.value });
                             }}>
                             <option value="" disabled>Select category</option>
-                            <option value={category}>{category}</option>
                             <option value="electronics">Electronics</option>
-                            <option value="furniture">Gear</option>
+                            <option value="gear">Gear</option>
                             <option value="apparel">Apparel</option>
                             <option value="accessories">Accessories</option>
                             <option value="health">Health</option>
@@ -161,7 +150,7 @@ function EditInventory({ match }) {
                     <label>
                         <input
                         type="radio"
-                        value="inStock"
+                        value="In Stock"
                         checked={stockStatus === 'In Stock'}
                         onChange={(e) => {
                             setStockStatus(e.target.value);
@@ -173,7 +162,7 @@ function EditInventory({ match }) {
                     <label>
                         <input
                             type="radio"
-                            value="outOfStock"
+                            value="Out of Stock"
                             checked={stockStatus === 'Out of Stock'}
                             onChange={(e) => {
                                 setStockStatus(e.target.value);
@@ -209,8 +198,7 @@ function EditInventory({ match }) {
                             setEditInventory({ ...editInventory, warehouse_id: e.target.value });
                         }}>
                         <option value="" disabled>Select warehouse</option>
-                        <option defaultValue={warehouse}>{warehouse}</option>
-                        <option value="1">Brooklyn</option>
+                        <option value="1">Manhattan</option>
                         <option value="2">Washington</option>
                         <option value="3">Jersey</option>
                         <option value="4">SF</option>
@@ -219,13 +207,13 @@ function EditInventory({ match }) {
                         <option value="7">Miami</option>
                         <option value="8">Boston</option>
                     </select>
-                    <ShowError fieldInvalid={fieldStatus.warehouse} errorMessage={fieldStatus.warehouse}/>
+                    <ShowError fieldInvalid={fieldStatus.warehouse_id} errorMessage={fieldStatus.warehouse_id}/>
                 </label>
             </div>
             </section>
             <div className="section__availability-section__buttons">
                 <button className="section__availability-section__buttons__cancel" type="button" onClick={() => navigate(-1)}>Cancel</button>
-                <button className="section__availability-section__buttons__save" type="button" onClick={handleSubmit}>Save</button>
+                <button className="section__availability-section__buttons__save" type="button" onClick={handleSubmit}> + Add Item</button>
             </div>
             
         </section>

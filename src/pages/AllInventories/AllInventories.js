@@ -75,8 +75,8 @@ const AllInventories = () => {
           placeholder="Search..."
           className="tsb_sb-searchbox"
         />  
-        <Link className="tsb-button-link">
-        <button className="tsb-button"> + Add New Item </button>
+        <Link to="/addinventory" className="tsb-button-link">
+          <button className="tsb-button"> + Add New Item </button>
         </Link>
         </div>
       </section>
@@ -157,7 +157,7 @@ const AllInventories = () => {
                   </div>
                 </Modal>
               </div>
-            <Link  to={`/inventories/edit/${inventory.id}`} >
+            <Link to={`/inventories/edit/${inventory.id}`}>
               <img src={editIcon} alt="edit" />
             </Link>
           </section>
