@@ -47,13 +47,18 @@
     width: 90vw;
     @include media-query_('desktop'){
         width: 80vw;
+        top: -101px;
     }
     height: fit-content;
-    top: 85.75rem;
+    top: 58.75rem;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+
+    @include media-query_('tablet'){
+        top: 3.5625rem;
+    }
 
     &__title{
         display: flex;
@@ -80,6 +85,7 @@
                 margin-right: 0.5rem;
                 padding-top: 0.125rem;
             }
+
         }
 
         &--edit{
@@ -222,6 +228,8 @@
 }
 
 .inventories{
+
+
     &__container{
         @include media-query_("mobile") {
             color: $InstockBlack;
@@ -246,8 +254,50 @@
           @include media-query_ ('tablet'){
             display: flex;
             flex-direction: row;
+            width: 65%;
+            justify-content: space-between;
+            gap: 4rem;
+            @include text-styles('TableHeader')
           }
+          @include media-query_ ('desktop'){
+            display: flex;
+            flex-direction: row;
+            width: 65%;
+            justify-content: space-between;
+            gap: 4rem;
+            @include text-styles('TableHeader')
+          }
+               
+        
     }
+
+    &__masterContainer{
+        @include media-query_('mobile'){
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        @include media-query_('tablet'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            align-items: center;
+            border-bottom: 1px solid $Cloud;
+        }
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            align-items: center;
+            border-bottom: 1px solid $Cloud;
+        }
+       
+      }
+    
+
 
 
     &__container--itemName{
@@ -273,20 +323,47 @@
         @include media-query_ ('tablet'){
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+            width: 70%;
+        }
+        @include media-query_ ('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 30%;
         }
     }
 
     &__container--titleCategory{
         @include media-query_ ('tablet'){
             display: flex;
-            flex-direction: row;
+            justify-content: space-between;
+            width: 70%;
+        }
+        @include media-query_ ('desktop'){
+            display: flex;
+            justify-content: space-between;
+            width: 47%;
         }
     }
 
-    &__container--icons{
+    &__container-icons{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        @include media-query_('tablet'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 9%;
+        }
+        @include media-query_('desktop'){
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 6%;
+        }
     }
     &__container--stockIn{
         background: rgba(21, 132, 99, 0.07);
@@ -313,7 +390,7 @@
 
 .footer {
     @include media-query_('mobile'){
-        padding-top: 150rem; 
+        padding-top: 101rem
     }
     @include media-query_('tablet'){
         padding-top: 45rem; 
@@ -327,9 +404,113 @@
     text-decoration: none;
     display: flex;
     flex-direction: row;
+
+    @include media-query_('tablet'){
+        @include text-styles("LabelsLinksButtons");
+    }
 }
 
 .break {
-    display: none;
-}
+    @include media-query_('tablet'){
+        display: none;
+    }
+    @include media-query_('desktop'){
+        display: none;
+    }
+    }
+   
+
+.labels {
+    @include media-query_("mobile") {
+      display: none;
+    }
+    @include media-query_("tablet") {
+      display: flex;
+      flex-direction: row;
+      @include text-styles("TableHeader");
+      background-color: #f7f8f9;
+      color: $Slate;
+      height: 2.5rem;
+      align-items: center;
+      gap: 34px;
+      
+    }
+    @include media-query_("desktop") {
+      display: flex;
+      flex-direction: row;
+      @include text-styles("TableHeader");
+      background-color: #f7f8f9;
+      color: $Slate;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: space-around;
+     
+    }
+  
+    &-title {
+      @include media-query_("tablet") {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+      }
+      @include media-query_("desktop") {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    &-title--actions{
+       
+        @include media-query_("tablet") {
+            display: flex;
+            flex-direction: row;
+            gap: .5rem;
+            padding-left: 1rem;
+          }
+          @include media-query_("desktop") {
+            display: flex;
+            flex-direction: row;
+          }
+    }
+  }
+  #labels-padding1{
+    @include media-query_("tablet") {
+     margin-left: 2.5rem;
+      
+    }
+    @include media-query_("desktop") {
+      margin-left: 0;
+       
+     }
+  }
+  #labels-padding2{
+    @include media-query_("tablet") {
+        padding-left: .625rem;
+      
+    }
+    @include media-query_("desktop") {
+        padding-left: .625rem;
+       
+     }
+  }
+  #labels-padding3{
+    @include media-query_("tablet") {
+        padding-left: 25px;
+      
+    }
+    @include media-query_("desktop") {
+        padding-left: 25px;
+       
+     }
+  }
+  #labels-padding5{
+    @include media-query_("tablet") {
+      padding-left: 1rem;
+       
+     }
+     @include media-query_("desktop") {
+      margin-right: 3rem;
+       
+     }
+  }
 

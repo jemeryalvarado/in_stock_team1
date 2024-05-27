@@ -14,9 +14,9 @@ import EditInventory from "./components/Main/EditInventory";
 function App() {
   return (
     <Router>
-      <div className="app-container">
+
         <Header />
-        <main className="content">
+ 
           <Routes>
             <Route path="/" element={<AllWarehouses />} />
             <Route path="/warehouses" element={<AllWarehouses />} />
@@ -29,9 +29,8 @@ function App() {
             <Route path="/inventories/edit/:inventoryId" element={< EditInventory />} />
             <Route path="/addwarehouses" element={<AddWarehouse />} />
           </Routes>
-        </main>
+
         <Footer />
-      </div>
 
     </Router>
   );
