@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./AllInventories.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import fArrow from "../../assets/icons/chevron_right-24px.svg";
@@ -125,7 +124,7 @@ const AllInventories = () => {
             <section  className="container-section">
             <div className="containerw-sectionp">
               <h3>STATUS</h3>
-              <p className="container-text">{inventory.status} </p>
+              <InventoryStatus status={inventory.status} />
               </div>
               <div className="containerw-sectioncce">
 
