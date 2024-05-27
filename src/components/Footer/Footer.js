@@ -1,5 +1,6 @@
 import './Footer.scss';
 import '../Main/EditInventory.scss';
+import '../../pages/WarehouseDetailsPage/WarehouseDetailsPage.scss';
 
 function Footer(){
     return(
