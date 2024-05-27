@@ -10,6 +10,7 @@ import AllWarehouses from "./pages/AllWarehouses/AllWarehouses.js";
 import AllInventories from "./pages/AllInventories/AllInventories.js";
 import "./App.scss";
 import EditInventory from "./components/Main/EditInventory";
+import AddNewInventory from "./pages/AddNewInventory/AddNewInventory.js"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/inventories/details/:inventoryId" element={<InventoryItemDetailsPage />} />
             <Route path="/inventories/edit/:inventoryId" element={< EditInventory />} />
             <Route path="/addwarehouses" element={<AddWarehouse />} />
+            <Route path="/addinventory" element={<AddNewInventory />} />
           </Routes>
         <Footer />
 

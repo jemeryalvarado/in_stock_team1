@@ -1,8 +1,46 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+.inventories__container--stockIn{
+    background: rgba(21, 132, 99, 0.496);
+    color: $Green;
+    border-radius: 20px;
+    padding: 4px 8px 4px 8px;
+    font-weight: bold;
+    width: fit-content;
+
+}
+
+.inventories__container--stockOut{
+    background-color: rgba(201, 69, 21, 0.43);
+    color: $Red;
+    border-radius: 20px;
+    padding: 4px 8px 4px 8px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.style-hotfix {
+    @include media-query_('tablet'){
+        width: 50%;
+        margin: 0 2rem;
+    }
+
+    @include media-query_('desktop'){
+        width: 50%;
+        margin: 0 2.5rem;
+    }
+}
+
+.divider1{
+    border: ($Cloud 1px solid);
+}
+
 .divider {
     border: ($Cloud 1px solid);
+    @include media-query_('mobile'){
+        visibility: hidden;
+    }
     @include media-query_('tablet'){
         margin-top: -0.25rem;
     }
@@ -101,9 +139,7 @@
         &--description {
             display: flex;
             flex-direction: column;
-            @include media-query_('desktop'){
-                width: 30%;
-            }
+
             
             & h4{
                  @include media-query_('mobile'){
@@ -154,6 +190,7 @@
         &--stock{
             display: flex;
             justify-content: space-between;
+            width: 60%;
 
             @include media-query_('tablet'){
                 width: 60%;
@@ -167,10 +204,10 @@
 
             &-status{
                 @include media-query_('tablet'){
-                    width: 50%;
+                    width: 80%;
                 }
                 @include media-query_('desktop'){
-                    width: 50%;
+                    width: 80%;
                 }
 
                 & h4{
