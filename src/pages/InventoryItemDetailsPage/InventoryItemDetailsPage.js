@@ -49,7 +49,7 @@ function InventoryItemDetailsPage() {
                 <Link to="/inventories"><img className="inventory__title--text-icon" src={back} alt="'BackBtn'" /></Link>
                 {state.item_name}
               </h1>
-              <Link className="inventory__title--edit" to="/inventories/edit/:inventoryId">
+              <Link className="inventory__title--edit" to={`/inventories/edit/${inventoryId}`}>
                 <img className="inventory__title--edit-icon" src={edit} alt="'EditBtn'" />
                 <p className="inventory__title--edit-text">Edit</p>
               </Link> 
