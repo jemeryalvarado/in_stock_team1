@@ -17,7 +17,6 @@ function App() {
     <Router>
 
         <Header />
- 
           <Routes>
             <Route path="/" element={<AllWarehouses />} />
             <Route path="/warehouses" element={<AllWarehouses />} />
@@ -31,8 +30,9 @@ function App() {
             <Route path="/addwarehouses" element={<AddWarehouse />} />
             <Route path="/addinventory" element={<AddNewInventory />} />
           </Routes>
-
+    
         <Footer />
+
 
     </Router>
   );
