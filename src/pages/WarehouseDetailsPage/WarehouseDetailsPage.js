@@ -16,12 +16,12 @@ const baseUrl = process.env.REACT_APP_BASE_URL
 function InventoryStatus({status}){
   if(status === "In Stock"){
     return (
-        <p className="inventories__container--stockIn">{status} </p>
+        <p className="inventories__container--stockIsIn">{status} </p>
     )
   }
   if(status === "Out of Stock"){
     return (
-        <p className="inventories__container--stockOut">{status} </p>
+        <p className="inventories__container--stockIsOut">{status} </p>
     )
   }
 };
@@ -167,7 +167,7 @@ function WarehouseDetailsPage () {
           
               <div className="inventories__container-icons">
                 <div>
-                  <img src={deleteIcon} alt="delete" onClick={() => openModal(inventory)}/>
+                  <img className="inventories__container--delete" src={deleteIcon} alt="delete" onClick={() => openModal(inventory)}/>
                   <Modal
                     modalIsOpen = {modalIsOpen}
                     closeModal = {closeModal}
