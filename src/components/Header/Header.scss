@@ -6,7 +6,7 @@
     //** activate the following lines once the main page component is added
     // position: relative;
     z-index: 1;
-    position: sticky;
+    position: relative;
 
     @include media-query_('mobile') {
         display: flex;
@@ -118,3 +118,4 @@
         }
     }
 }
+

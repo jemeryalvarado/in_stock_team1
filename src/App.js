@@ -15,6 +15,7 @@ import AddNewInventory from "./pages/AddNewInventory/AddNewInventory.js"
 function App() {
   return (
     <Router>
+
         <Header />
           <Routes>
             <Route path="/" element={<AllWarehouses />} />
@@ -29,7 +30,10 @@ function App() {
             <Route path="/addwarehouses" element={<AddWarehouse />} />
             <Route path="/addinventory" element={<AddNewInventory />} />
           </Routes>
+    
         <Footer />
+
+
     </Router>
   );
 }

@@ -10,17 +10,18 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import "../../components/Footer/Footer.scss";
 import rightArrow from "../../assets/icons/chevron_right-24px.svg";
 import Modal from "../../components/Modal/Modal";
+import scroll from "../../assets/icons/sort-24px.svg";
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 function InventoryStatus({status}){
   if(status === "In Stock"){
     return (
-        <p className="inventories__container--stockIn">{status} </p>
+        <p className="inventories__container--stockIsIn">{status} </p>
     )
   }
   if(status === "Out of Stock"){
     return (
-        <p className="inventories__container--stockOut">{status} </p>
+        <p className="inventories__container--stockIsOut">{status} </p>
     )
   }
 };
@@ -121,12 +122,33 @@ function WarehouseDetailsPage () {
           </div>
         <div className="divider3"></div>
         <div className="inventories">
+          <div className="labels">
+          <div className="labels-title" id="labels-padding1">
+            <h5>INVENTORY ITEM</h5>
+            <img src={scroll} alt="" />
+          </div>
+          <div className="labels-title" id="labels-padding2">
+            <h5>CATEGORY</h5>
+            <img src={scroll} alt="" />
+          </div>
+          <div className="labels-title" id="labels-padding3">
+            <h5>STATUS</h5>
+            <img src={scroll} alt="" />
+          </div>
+          <div className="labels-title" id="labels-padding4">
+            <h5>QUANTITY</h5>
+            <img src={scroll} alt="" />
+          </div>
+          <div className="labels-title--actions" id="labels-padding6">
+            <h5>ACTIONS</h5>
+        </div>
+        </div>
           {inventories.map((inventory)=>{
             return(
-              <div key={inventory.id}>
+              <div key={inventory.id} className="inventories__masterContainer">
               <div className="break"></div>
               <div className="inventories__container">
-                <div>
+                <div className="inventories__container--titleCategory">
                   <h3 className="inventories__container--headers">INVENTORY ITEM</h3>
                   <Link className="inventoryLink" to= {`/inventories/details/${inventory.id}`}>
                     <p className="inventories__container--itemName">{inventory.item_name}</p>
@@ -135,16 +157,17 @@ function WarehouseDetailsPage () {
                   <h3 className="inventories__container--headers">CATEGORY</h3>
                   <p className="inventories__container-text">{inventory.category} </p>
                 </div>
-                <div>
+                <div className="inventories__container--statusQuantity">
                   <h3 className="inventories__container--headers">STATUS</h3>
                   <InventoryStatus status={ inventory.status }/>
                   <h3 className="inventories__container--headers">QTY</h3>
                   <p className="inventories__container-text">{inventory.quantity} </p>
                 </div>
-              </div>
+                </div>
+          
               <div className="inventories__container-icons">
                 <div>
-                  <img src={deleteIcon} alt="delete" onClick={() => openModal(inventory)}/>
+                  <img className="inventories__container--delete" src={deleteIcon} alt="delete" onClick={() => openModal(inventory)}/>
                   <Modal
                     modalIsOpen = {modalIsOpen}
                     closeModal = {closeModal}
@@ -156,7 +179,7 @@ function WarehouseDetailsPage () {
                     <div className="modal-grid__content-header">
                       Delete {inventoryToDelete.item_name} inventory item??
                     </div>
-                    <div className="modal-grid__content-text">
+                    <div className="modal-grid__content--text">
                       Please confirm that you’d like to delete {inventoryToDelete.item_name} from the inventory list.
                       You won’t be able to undo this action.
                     </div>
@@ -167,6 +190,7 @@ function WarehouseDetailsPage () {
                 </Link>
               </div>
               </div>
+            
             )
           })}
         </div>
