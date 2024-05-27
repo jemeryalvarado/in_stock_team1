@@ -9,15 +9,15 @@
   margin: auto;
   color: $InstockBlack;
   margin-bottom: 1.5rem;
-  
+
   @include media-query_("tablet") {
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     width: 90%;
     justify-content: space-between;
-     }
-    
+  }
+
   &_sb {
     width: 100%;
     display: flex;
@@ -26,10 +26,8 @@
     @include media-query_("tablet") {
       display: flex;
       flex-direction: row;
-justify-content: end      
-     }
-     
-
+      justify-content: end;
+    }
 
     &-searchbox {
       @include search-bar(
@@ -50,32 +48,30 @@ justify-content: end
         padding-left: 1rem;
       }
       @include media-query_("tablet") {
-           
         @include search-bar(
           11.5625rem,
           2.38rem,
           url("../../assets/icons/search-24px.svg"),
           no-repeat,
-        9rem,
+          9rem,
           0.45rem,
           0.5rem,
           $White,
           1.25rem,
           solid 1px $Cloud
         );
-       }
-       
+      }
     }
   }
   @include media-query_("desktop") {
     display: flex;
     flex-direction: row;
-    align-items: center; 
-  
+    align-items: center;
+
     width: 90%;
     justify-content: space-between;
-     }
-    
+  }
+
   &_sb {
     width: 100%;
     display: flex;
@@ -84,15 +80,13 @@ justify-content: end
     @include media-query_("tablet") {
       display: flex;
       flex-direction: row;
-justify-content: end      
-     }
-     @include media-query_("desktop") {
+      justify-content: end;
+    }
+    @include media-query_("desktop") {
       display: flex;
       flex-direction: row;
-justify-content: end      
-     }
-     
-
+      justify-content: end;
+    }
 
     &-searchbox {
       @include search-bar(
@@ -113,35 +107,33 @@ justify-content: end
         padding-left: 1rem;
       }
       @include media-query_("tablet") {
-           
         @include search-bar(
           11.5625rem,
           2.38rem,
           url("../../assets/icons/search-24px.svg"),
           no-repeat,
-        9rem,
+          9rem,
           0.45rem,
           0.5rem,
           $White,
           1.25rem,
           solid 1px $Cloud
         );
-       }
-       @include media-query_("desktop") {
-           
+      }
+      @include media-query_("desktop") {
         @include search-bar(
           11.5625rem,
           2.38rem,
           url("../../assets/icons/search-24px.svg"),
           no-repeat,
-        9rem,
+          9rem,
           0.45rem,
           0.5rem,
           $White,
           1.25rem,
           solid 1px $Cloud
         );
-       }
+      }
     }
   }
   &-title {
@@ -166,13 +158,13 @@ justify-content: end
       text-decoration: none;
     }
     @include media-query_("tablet") {
-           height: 2.375rem;
-      width: 10.5rem;
-     }
-     @include media-query_("desktop") {
       height: 2.375rem;
- width: 10.5rem;
-}
+      width: 10.5rem;
+    }
+    @include media-query_("desktop") {
+      height: 2.375rem;
+      width: 10.5rem;
+    }
   }
 }
 
@@ -182,6 +174,10 @@ justify-content: end
   text-decoration: none;
   color: $InstockIndigo;
   @include text-styles("LabelsLinksButtons", true);
+  @include media-query_("tablet") {
+ @include text-styles("LabelsLinksButtons");
+
+  }
 }
 
 .containerw {
@@ -223,34 +219,35 @@ justify-content: end
     &-section {
       display: flex;
       flex-direction: row;
-    gap: 1rem;
+      gap: 1rem;
       width: 45%;
       align-items: start;
       @include text-styles("BodyMedium");
-
     }
-    &-text{
+    &-text {
       display: flex;
       flex-wrap: wrap;
       margin: 0.5rem;
       text-align: left;
+      @include text-styles("BodySmall");
+
     }
-    &-sectionpe{
+    &-sectionpe {
       display: flex;
       flex-direction: column;
       align-items: start;
       width: 10rem;
       text-align: left;
     }
-    &-sectioncc{
+    &-sectioncc {
       width: 10rem;
-    } 
-    &-sectionp{
+    }
+    &-sectionp {
       width: 6rem;
     }
   }
 
-    @include media-query_("desktop") {
+  @include media-query_("desktop") {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -269,36 +266,34 @@ justify-content: end
     &-section {
       display: flex;
       flex-direction: row;
-    gap: 1rem;
+      gap: 1rem;
       width: 80%;
-      align-items: start;
+      align-items: center;
       justify-content: space-evenly;
       @include text-styles("BodyMedium");
-
     }
-    &-text{
+    &-text {
       display: flex;
       flex-wrap: wrap;
       margin: 0.5rem;
       text-align: left;
     }
-    &-sectionpe{
+    &-sectionpe {
       display: flex;
       flex-direction: column;
       align-items: start;
       width: 15rem;
       text-align: center;
     }
-    &-sectioncc{
+    &-sectioncc {
       width: 10rem;
       display: flex;
       flex-direction: column;
-    } 
-    &-sectionp{
+    }
+    &-sectionp {
       width: 6rem;
     }
   }
-
 }
 
 h3 {
@@ -319,28 +314,106 @@ h3 {
 .master-containerw {
   @include media-query_("mobile") {
     width: 100%;
-   
-  
   }
   @include media-query_("tablet") {
-display: flex;  
-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+  }
+  @include media-query_("desktop") {
+    display: flex;
+    flex-direction: row;
+  }
 }
-@include media-query_("desktop") {
-  display: flex;  
-  flex-direction: row;
+.boxw {
+  background-color: $White;
+  position: relative;
+  z-index: 3;
+  width: 90vw;
+  top: -4rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+
+}
+
+.labels {
+  @include media-query_("mobile") {
+    display: none;
+  }
+  @include media-query_("tablet") {
+    display: flex;
+    flex-direction: row;
+    @include text-styles("TableHeader");
+    background-color: #f7f8f9;
+    color: $Slate;
+    height: 2.5rem;
+    align-items: center;
+    gap: 1.25rem;
+    
+  }
+  @include media-query_("desktop") {
+    display: flex;
+    flex-direction: row;
+    @include text-styles("TableHeader");
+    background-color: #f7f8f9;
+    color: $Slate;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+   
   }
 
-
+  &-title {
+    @include media-query_("tablet") {
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
+    }
+    @include media-query_("desktop") {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }
-.box{
-  background-color: $White;
-    position: absolute;
-    z-index: 3;
-    width: 90vw;
-    top: 8rem;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+#labels-padding1{
+  @include media-query_("tablet") {
+   margin-left: 2.5rem;
+    
+  }
+  @include media-query_("desktop") {
+    margin-left: 4.25rem;
+     
+   }
+}
+#labels-padding2{
+  @include media-query_("tablet") {
+   padding-left: 1.5rem;
+    
+  }
+  @include media-query_("desktop") {
+    margin-left: 1rem;
+     
+   }
+}
+#labels-padding3{
+  @include media-query_("tablet") {
+   padding-left: 2.5rem;
+    
+  }
+  @include media-query_("desktop") {
+    margin-left: 12rem;
+     
+   }
+}
+#labels-padding5{
+  @include media-query_("tablet") {
+    padding-left: 1rem;
+     
+   }
+   @include media-query_("desktop") {
+    margin-right: 3rem;
+     
+   }
 }
