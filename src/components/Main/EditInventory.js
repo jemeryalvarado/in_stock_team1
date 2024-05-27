@@ -161,7 +161,7 @@ function EditInventory({ match }) {
                     <label>
                         <input
                         type="radio"
-                        value="inStock"
+                        value="In Stock"
                         checked={stockStatus === 'In Stock'}
                         onChange={(e) => {
                             setStockStatus(e.target.value);
@@ -173,7 +173,7 @@ function EditInventory({ match }) {
                     <label>
                         <input
                             type="radio"
-                            value="outOfStock"
+                            value="Out of Stock"
                             checked={stockStatus === 'Out of Stock'}
                             onChange={(e) => {
                                 setStockStatus(e.target.value);
